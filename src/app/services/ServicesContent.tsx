@@ -7,6 +7,7 @@ import {
   GraduationCap, HeartHandshake, Settings, Wrench,
   UtensilsCrossed, Stethoscope, Code, Bot, DollarSign,
   Printer, ShoppingBag, UserSearch, Building,
+  LucideIcon
 } from 'lucide-react';
 import { StaggerChildren, FadeIn } from '@/components/ui/animations';
 
@@ -87,7 +88,7 @@ const serviceCategories = [
   },
 ];
 
-function ServiceCard({ icon: Icon, title, desc, accent }: { icon: React.ElementType; title: string; desc: string; accent: string }) {
+function ServiceCard({ icon: Icon, title, desc, accent }: { icon: LucideIcon; title: string; desc: string; accent: string }) {
   return (
     <div className="group relative bg-white/60 backdrop-blur-md rounded-3xl p-8 border border-white/80 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-2 transition-all duration-300 flex flex-col gap-4 overflow-hidden h-full">
       {/* Soft gradient background glow */}

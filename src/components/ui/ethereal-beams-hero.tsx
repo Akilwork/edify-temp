@@ -5,7 +5,7 @@ import * as THREE from "three"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
 import { degToRad } from "three/src/math/MathUtils.js"
-import { ArrowRight, Github, Star } from "lucide-react"
+import { ArrowRight, Globe, Star } from "lucide-react"
 
 // ============================================================================
 // BEAMS COMPONENT (3D Background)
@@ -520,8 +520,8 @@ export default function EtherealBeamsHero() {
             {/* CTA Button */}
             <div className="flex items-center space-x-4">
               <Button variant="ghost" size="sm" className="hidden sm:flex">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
+                <Globe className="mr-2 h-4 w-4" />
+                Website
               </Button>
               <Button size="sm">
                 Get Started
