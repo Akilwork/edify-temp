@@ -12,7 +12,7 @@ export default function FeatureSections() {
           <p className="text-xs font-bold tracking-widest uppercase mb-3 text-accent">
             Core Capabilities
           </p>
-          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight accent-rule-center text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h2 className="mb-6 leading-tight accent-rule-center text-brand-black">
             Comprehensive Solutions
           </h2>
           <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
@@ -30,7 +30,7 @@ export default function FeatureSections() {
                   alt={feature.title}
                 />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="mb-4 text-brand-black">
                 {feature.title}
               </h3>
               <p className="text-base text-slate-600 leading-relaxed flex-grow">

@@ -115,14 +115,14 @@ function CompanyCard({ company }: { company: typeof companies[0] }) {
              {/* Logo Mark - Circular and bold */}
              <div 
                className="w-14 h-14 rounded-full flex items-center justify-center text-white text-2xl shadow-md transition-transform duration-700 group-hover:rotate-12 group-hover:scale-110"
-               style={{ background: company.color, fontFamily: 'Playfair Display, serif' }}
+               style={{ background: company.color }}
              >
                {company.name[0]}
              </div>
              <div>
-               <h3 className="text-2xl font-bold text-slate-900 leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
-                 {company.name}
-               </h3>
+                <h3 className="text-2xl font-bold text-slate-900 leading-tight">
+                  {company.name}
+                </h3>
                {company.fullName && (
                  <p className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mt-1">{company.fullName}</p>
                )}
@@ -207,7 +207,7 @@ export default function CompaniesContent() {
               <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: 'var(--gold-400)' }}>
                 Partnership
               </p>
-              <h2 className="text-3xl text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-3xl text-white mb-4">
                 Interested in joining our ecosystem?
               </h2>
               <p className="text-slate-200 text-sm leading-relaxed mb-8 max-w-lg">
@@ -233,7 +233,7 @@ export default function CompaniesContent() {
               <p className="text-xs font-bold tracking-widest uppercase mb-4" style={{ color: 'var(--gold-500)' }}>
                 Under MHUDA Trust
               </p>
-              <h3 className="text-2xl font-bold mb-4 leading-tight" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
+              <h3 className="text-2xl font-bold mb-4 leading-tight text-brand-black">
                 A unified institutional vision
               </h3>
               <p className="text-sm text-slate-500 leading-relaxed">

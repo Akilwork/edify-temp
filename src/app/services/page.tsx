@@ -29,10 +29,7 @@ function PageHero() {
           </span>
         </div>
         
-        <h1
-          className="text-5xl md:text-6xl lg:text-7xl font-black text-brand-black mb-8 leading-[1.1] max-w-5xl tracking-tight"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+        <h1 className="mb-8">
           Comprehensive Solutions for <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black via-slate-600 to-brand-black">Modern Education</span>
         </h1>

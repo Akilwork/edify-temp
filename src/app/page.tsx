@@ -36,10 +36,7 @@ function HeroSection() {
           </FadeIn>
 
           <FadeIn y={30} delay={0.2} duration={1.2}>
-            <h1
-              className="text-6xl md:text-5xl lg:text-7xl font-extrabold text-brand-black mb-10 leading-[1.05] tracking-tight"
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+            <h1 className="mb-10">
               Empowering Education & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black via-slate-600 to-brand-black">Institutional Excellence</span>
             </h1>
@@ -136,7 +133,7 @@ function AboutSection() {
               <div className="h-px w-12 bg-slate-200" />
             </div>
             
-            <h2 className="text-5xl md:text-5.5xl font-extrabold text-brand-black leading-[1.1]" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="leading-[1.1]">
               Strategic Excellence for <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black to-slate-950">Modern Institutions</span>
             </h2>
@@ -199,7 +196,7 @@ function UAEPresenceSection() {
                 <div className="h-px w-12 bg-slate-200" />
               </div>
               
-              <h2 className="text-5xl md:text-7xl font-extrabold mb-8 leading-[1.1] text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="mb-8 leading-[1.1]">
                 Scale and Impact <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black to-slate-400">Across the Region</span>
               </h2>
@@ -251,7 +248,7 @@ function UAEPresenceSection() {
                       {item.year}
                     </div>
                     
-                    <h3 className="text-3xl font-extrabold text-brand-black mb-6 leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="mb-6 leading-tight">
                       {item.title}
                     </h3>
                     
@@ -290,10 +287,7 @@ function CTABanner() {
         <p className="text-sm font-bold tracking-[0.2em] uppercase mb-6 text-accent">
           Let's Collaborate
         </p>
-        <h2
-          className="text-5xl md:text-7xl text-white font-extrabold mb-10 max-w-4xl mx-auto leading-tight"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+        <h2 className="text-white mb-10 max-w-4xl mx-auto leading-tight">
           Partner with us for <br /> educational excellence
         </h2>
         <p className="text-slate-400 text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">

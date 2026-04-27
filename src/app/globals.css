@@ -64,9 +64,18 @@
 
   h1, h2, h3 {
     font-family: 'Playfair Display', 'Playfair Display fallback', serif;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.2];
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-[1.3];
   }
 
   h4, h5, h6 {
@@ -78,16 +87,11 @@
 
 @layer utilities {
   .container-edify {
-    max-width: var(--container-max);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   .section-gap {
-    padding-top: var(--section-gap);
-    padding-bottom: var(--section-gap);
+    @apply py-12 md:py-20 lg:py-24;
   }
 
   .bg-ethereal {

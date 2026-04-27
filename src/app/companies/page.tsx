@@ -10,8 +10,7 @@ export const metadata: Metadata = {
 function PageHero() {
   return (
     <section
-      className="pt-40 pb-20 relative overflow-hidden"
-      style={{ background: 'var(--green-900)' }}
+      className="pt-48 pb-20 relative overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -32,10 +31,7 @@ function PageHero() {
             Our Ecosystem
           </span>
         </div>
-        <h1
-          className="text-5xl md:text-6xl text-white mb-5 leading-tight"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+        <h1 className="text-white mb-5 leading-tight">
           Group Companies
         </h1>
         <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
@@ -50,7 +46,7 @@ function PageHero() {
             { num: '50+', label: 'Institutions Served' },
           ].map((s) => (
             <div key={s.label}>
-              <div className="text-3xl font-bold text-white" style={{ fontFamily: 'Playfair Display, serif' }}>{s.num}</div>
+              <div className="text-3xl font-bold text-white">{s.num}</div>
               <div className="text-xs text-slate-400 mt-1 tracking-wide">{s.label}</div>
             </div>
           ))}

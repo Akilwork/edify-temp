@@ -54,9 +54,9 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto max-w-5xl px-4 md:px-0`}
+      className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto px-4"
     >
-      <div className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 md:px-8">
+      <div className="container-edify bg-white/80 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] !px-6 md:!px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
@@ -64,7 +64,7 @@ export default function Header() {
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <div className="font-bold text-xl tracking-tight text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <div className="font-bold text-xl tracking-tight text-brand-black">
                 EDIFY
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function Header() {
                     <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/10" style={{ background: 'var(--accent-orange)' }}>
                       <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-bold text-xl tracking-tight text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>EDIFY</span>
+                    <span className="font-bold text-xl tracking-tight text-brand-black">EDIFY</span>
                   </div>
                   <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg bg-slate-50 text-slate-400">
                     <X className="w-5 h-5" />

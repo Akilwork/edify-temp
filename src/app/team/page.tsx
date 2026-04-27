@@ -19,8 +19,7 @@ const departments = [
 function PageHero() {
   return (
     <section
-      className="pt-40 pb-20 relative overflow-hidden"
-      style={{ background: 'var(--green-900)' }}
+      className="pt-48 pb-20 relative overflow-hidden bg-brand-black"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -37,10 +36,7 @@ function PageHero() {
             The People Behind EDIFY
           </span>
         </div>
-        <h1
-          className="text-5xl md:text-6xl text-white mb-5 leading-tight"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+        <h1 className="text-white mb-5 leading-tight">
           Our Leadership
         </h1>
         <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
@@ -51,7 +47,7 @@ function PageHero() {
         <div className="flex flex-wrap gap-6 mt-12 pt-10 border-t border-white/10">
           {departments.map((dept) => (
             <div key={dept.label} className="text-center">
-              <div className="text-2xl font-bold text-white" style={{ fontFamily: 'Playfair Display, serif' }}>{dept.count}</div>
+              <div className="text-2xl font-bold text-white">{dept.count}</div>
               <div className="text-xs text-slate-400 mt-0.5">{dept.label}</div>
             </div>
           ))}
@@ -73,17 +69,13 @@ export default function TeamPage() {
 
           {/* Join CTA */}
           <div
-            className="mt-20 rounded-2xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden grain-overlay"
-            style={{ background: 'linear-gradient(135deg, var(--green-800), var(--green-900))' }}
+            className="mt-20 rounded-2xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden bg-brand-black"
           >
             <div className="relative z-10">
               <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold-400)' }}>
                 Careers
               </p>
-              <h2
-                className="text-3xl text-white mb-3 leading-tight"
-                style={{ fontFamily: 'Playfair Display, serif' }}
-              >
+              <h2 className="text-3xl text-white mb-3 leading-tight">
                 Join a team that shapes education
               </h2>
               <p className="text-slate-300 text-sm leading-relaxed">

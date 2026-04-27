@@ -42,7 +42,7 @@ function StatItem({ end, suffix = '', prefix = '', label, description }: StatPro
   }, [end]);
 
   return (
-    <div ref={ref} className="text-left group border-l-2 border-slate-100 pl-8 transition-all duration-500 hover:border-brand-black">
+    <div ref={ref} className="text-left group border-l-2 md:border-l-0 md:border-t-2 lg:border-t-0 lg:border-l-2 border-slate-100 pl-8 md:pl-0 md:pt-8 lg:pt-0 lg:pl-8 transition-all duration-500 hover:border-brand-black">
       <div className="text-4xl md:text-5xl font-extrabold mb-1 tracking-tight text-brand-black transition-all duration-300 group-hover:scale-105">
         {prefix}{count.toLocaleString()}{suffix}
       </div>
@@ -54,7 +54,7 @@ function StatItem({ end, suffix = '', prefix = '', label, description }: StatPro
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="section-gap bg-white">
       <div className="container-edify">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {stats.map((s) => (

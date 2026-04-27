@@ -92,7 +92,7 @@ function TeamCard({
         {/* Large initials */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg transition-transform duration-300 group-hover:scale-105"
-          style={{ background: color, fontFamily: 'Playfair Display, serif' }}
+          style={{ background: color }}
         >
           {initials}
         </div>
@@ -114,7 +114,7 @@ function TeamCard({
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-1" style={{ fontFamily: 'Playfair Display, serif' }}>
+        <h3 className="text-lg font-bold text-slate-900 mb-1">
           {name}
         </h3>
         <p className="text-sm text-slate-500 leading-relaxed mb-5">{background}</p>

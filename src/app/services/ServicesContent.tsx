@@ -127,7 +127,7 @@ export default function ServicesContent() {
             <section key={category.id} id={category.id}>
               <div className="flex flex-col items-center text-center mb-16">
                 <div className="h-1.5 w-16 rounded-full bg-accent mb-6" />
-                <h2 className="text-4xl md:text-5xl font-black text-brand-black tracking-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h2 className="tracking-tight">
                   {category.label}
                 </h2>
               </div>
@@ -157,7 +157,7 @@ export default function ServicesContent() {
           </div>
           
           <div className="relative z-10">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-white mb-10 tracking-tight leading-tight">
               Looking for the right solution <br /> for your institution?
             </h2>
             <p className="text-slate-400 text-xl mb-14 max-w-3xl mx-auto leading-relaxed font-medium">

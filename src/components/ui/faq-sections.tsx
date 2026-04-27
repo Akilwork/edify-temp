@@ -33,8 +33,8 @@ const FAQSections = () => {
                 alt="UAE Education Consultancy"
             />
             <div className="flex-1">
-                <p className="text-indigo-600 text-sm font-semibold tracking-wider uppercase mb-2">FAQ's</p>
-                <h2 className="text-3xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>Presence & Operations</h2>
+                <p className="text-accent text-sm font-semibold tracking-wider uppercase mb-2">FAQ's</p>
+                <h2 className="text-3xl font-bold text-slate-900 mb-2">Presence & Operations</h2>
                 <p className="text-sm text-slate-500 mt-2 pb-6">
                     Frequently asked questions about our presence in the UAE and how we support educational institutions.
                 </p>
@@ -48,14 +48,14 @@ const FAQSections = () => {
                             <div className="flex items-center justify-between">
                                 <h3 className={cn(
                                     "text-base font-medium transition-colors duration-300",
-                                    openIndex === index ? "text-indigo-600" : "text-slate-800 group-hover:text-indigo-500"
+                                    openIndex === index ? "text-accent" : "text-slate-800 group-hover:text-accent/80"
                                 )}>
                                     {faq.question}
                                 </h3>
                                 <ChevronDown 
                                     className={cn(
                                         "w-5 h-5 text-slate-400 transition-all duration-500 ease-in-out",
-                                        openIndex === index ? "rotate-180 text-indigo-600" : ""
+                                        openIndex === index ? "rotate-180 text-accent" : ""
                                     )} 
                                 />
                             </div>

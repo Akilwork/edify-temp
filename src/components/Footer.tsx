@@ -32,7 +32,7 @@ export default function Footer() {
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <div>
-                <div className="font-bold text-2xl leading-none tracking-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <div className="font-bold text-2xl leading-none tracking-tight">
                   EDIFY
                 </div>
                 <div className="text-[10px] text-slate-500 font-bold tracking-[0.3em] uppercase leading-none mt-1.5">
