@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, GraduationCap } from 'lucide-react';
 import {
   Sheet,
@@ -40,6 +41,10 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isLightPage = pathname === '/services';
+  const textShouldBeDark = scrolled || isLightPage;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -63,10 +68,10 @@ export default function Header() {
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
             <div>
-              <div className="font-bold text-lg leading-none" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-800)' }}>
+              <div className="font-bold text-lg leading-none transition-colors duration-300" style={{ fontFamily: 'Playfair Display, serif', color: textShouldBeDark ? 'var(--green-800)' : 'white' }}>
                 EDIFY
               </div>
-              <div className="text-xs text-slate-500 font-medium tracking-widest uppercase leading-none mt-0.5">
+              <div className={`text-xs font-medium tracking-widest uppercase leading-none mt-0.5 transition-colors duration-300 ${textShouldBeDark ? 'text-slate-500' : 'text-white/80'}`}>
                 Management Consultancy
               </div>
             </div>
@@ -74,7 +79,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href="/" className="text-sm font-medium text-slate-700 hover:text-green-800 transition-colors" style={{ '--tw-text-opacity': '1' } as React.CSSProperties}>
+            <Link href="/" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
               Overview
             </Link>
 
@@ -84,7 +89,7 @@ export default function Header() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-green-800 transition-colors" style={{ color: servicesOpen ? 'var(--green-800)' : undefined }}>
+              <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${textShouldBeDark ? (servicesOpen ? 'text-green-800' : 'text-slate-700 hover:text-green-800') : (servicesOpen ? 'text-white' : 'text-white/90 hover:text-white')}`}>
                 Our Services
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -123,16 +128,16 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="/team" className="text-sm font-medium text-slate-700 hover:text-green-800 transition-colors">
+            <Link href="/team" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
               Team
             </Link>
-            <Link href="/companies" className="text-sm font-medium text-slate-700 hover:text-green-800 transition-colors">
+            <Link href="/companies" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
               Group Companies
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-semibold px-5 py-2.5 rounded-full text-white transition-all hover:opacity-90 hover:shadow-md"
-              style={{ background: 'var(--green-800)' }}
+              className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-90 hover:shadow-md ${textShouldBeDark ? 'text-white' : 'text-green-900 bg-white hover:bg-white/90'}`}
+              style={textShouldBeDark ? { background: 'var(--green-800)' } : {}}
             >
               Contact Us
             </Link>
@@ -141,8 +146,8 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
-              className="lg:hidden p-2 rounded-lg"
-              style={{ color: 'var(--green-800)' } as React.CSSProperties}
+              className="lg:hidden p-2 rounded-lg transition-colors"
+              style={{ color: textShouldBeDark ? 'var(--green-800)' : 'white' }}
               aria-label="Open navigation menu"
             >
               <Menu className="w-6 h-6" />
