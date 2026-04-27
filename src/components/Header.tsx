@@ -146,56 +146,72 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
-              className="lg:hidden p-2 rounded-lg transition-colors"
+              className="lg:hidden p-2 rounded-xl transition-all active:scale-95 hover:bg-black/5"
               style={{ color: textShouldBeDark ? 'var(--green-800)' : 'white' }}
               aria-label="Open navigation menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-7 h-7" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 p-0">
-              <div className="flex flex-col h-full">
-                <div className="p-6 border-b border-slate-100">
+            <SheetContent side="right" className="w-[85vw] max-w-[400px] p-0 bg-white border-l-0">
+              <div className="flex flex-col h-full bg-white text-slate-900">
+                <div className="p-8 border-b border-slate-100 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-sm flex items-center justify-center" style={{ background: 'var(--green-800)' }}>
-                      <GraduationCap className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-green-900/10" style={{ background: 'var(--green-800)' }}>
+                      <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-bold" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-800)' }}>EDIFY</span>
+                    <span className="font-bold text-xl tracking-tight" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-800)' }}>EDIFY</span>
                   </div>
-                </div>
-                <nav className="flex-1 p-6 space-y-1">
-                  <Link href="/" onClick={() => setMobileOpen(false)} className="block px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg">Overview</Link>
-
-                  <button
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="w-full flex items-center justify-between px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg"
-                  >
-                    Our Services
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                  <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg bg-slate-50 text-slate-400">
+                    <X className="w-5 h-5" />
                   </button>
-                  {mobileServicesOpen && (
-                    <div className="ml-4 space-y-2">
-                      {services.map((g) => (
-                        <div key={g.category}>
-                          <p className="text-xs font-semibold tracking-wider uppercase px-3 py-1" style={{ color: 'var(--gold-500)' }}>{g.category}</p>
-                          {g.items.map((item) => (
-                            <Link key={item} href="/services" onClick={() => setMobileOpen(false)} className="block px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50 rounded-lg">{item}</Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <Link href="/team" onClick={() => setMobileOpen(false)} className="block px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg">Team</Link>
-                  <Link href="/companies" onClick={() => setMobileOpen(false)} className="block px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 rounded-lg">Group Companies</Link>
+                </div>
+                
+                <nav className="flex-1 px-4 py-8 overflow-y-auto space-y-2">
+                  <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Overview</Link>
+
+                  <div className="space-y-1">
+                    <button
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="w-full flex items-center justify-between px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors"
+                    >
+                      Our Services
+                      <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {mobileServicesOpen && (
+                      <div className="mx-2 space-y-1 bg-slate-50/50 rounded-2xl p-2 mt-1">
+                        {services.map((g) => (
+                          <div key={g.category} className="py-2 first:pt-1 last:pb-1">
+                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 text-gold-500" style={{ color: 'var(--gold-500)' }}>{g.category}</p>
+                            {g.items.map((item) => (
+                              <Link 
+                                key={item} 
+                                href="/services" 
+                                onClick={() => setMobileOpen(false)} 
+                                className="block px-4 py-2 text-[14px] font-medium text-slate-600 hover:text-green-800 active:bg-white rounded-xl transition-all"
+                              >
+                                {item}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <Link href="/team" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Team</Link>
+                  <Link href="/companies" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Group Companies</Link>
                 </nav>
-                <div className="p-6 border-t border-slate-100">
+
+                <div className="p-8 border-t border-slate-100">
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="block text-center text-sm font-semibold px-5 py-3 rounded-full text-white"
+                    className="flex items-center justify-center w-full text-base font-bold px-6 py-4 rounded-2xl text-white shadow-xl shadow-green-900/20 active:scale-[0.98] transition-all"
                     style={{ background: 'var(--green-800)' }}
                   >
                     Contact Us
                   </Link>
+                  <p className="text-center text-xs text-slate-400 mt-6 font-medium">Empowering Educational Excellence</p>
                 </div>
               </div>
             </SheetContent>
