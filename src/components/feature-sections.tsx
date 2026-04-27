@@ -8,14 +8,14 @@ export default function FeatureSections() {
   return (
     <section className="section-gap bg-white overflow-hidden">
       <div className="container-edify">
-        <FadeIn className="text-center max-w-2xl mx-auto mb-16">
+        <FadeIn className="text-center max-w-4xl mx-auto mb-16">
           <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold-500)' }}>
             Core Capabilities
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight gold-rule-center" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight gold-rule-center" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
             Comprehensive Solutions
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-500 leading-relaxed">
             From academic governance to digital transformation, we provide end-to-end consultancy services that empower institutions to thrive.
           </p>
         </FadeIn>
