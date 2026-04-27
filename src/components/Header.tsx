@@ -54,32 +54,25 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto max-w-5xl px-4 md:px-0`}
     >
-      <div className="container-edify">
-        <div className="flex items-center justify-between h-20">
+      <div className="bg-white/80 backdrop-blur-xl border border-white/20 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 md:px-8">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-sm flex items-center justify-center" style={{ background: 'var(--green-800)' }}>
-              <GraduationCap className="w-5 h-5 text-white" />
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110" style={{ background: 'linear-gradient(135deg, var(--accent-orange), #fb923c)' }}>
+              <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <div className="font-bold text-lg leading-none transition-colors duration-300" style={{ fontFamily: 'Playfair Display, serif', color: textShouldBeDark ? 'var(--green-800)' : 'white' }}>
+              <div className="font-bold text-xl tracking-tight text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
                 EDIFY
-              </div>
-              <div className={`text-xs font-medium tracking-widest uppercase leading-none mt-0.5 transition-colors duration-300 ${textShouldBeDark ? 'text-slate-500' : 'text-white/80'}`}>
-                Management Consultancy
               </div>
             </div>
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href="/" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
+            <Link href="/" className="text-sm font-medium text-slate-600 hover:text-brand-black transition-colors">
               Overview
             </Link>
 
@@ -89,18 +82,16 @@ export default function Header() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${textShouldBeDark ? (servicesOpen ? 'text-green-800' : 'text-slate-700 hover:text-green-800') : (servicesOpen ? 'text-white' : 'text-white/90 hover:text-white')}`}>
+              <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${servicesOpen ? 'text-brand-black' : 'text-slate-600 hover:text-brand-black'}`}>
                 Our Services
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[760px] bg-white rounded-xl shadow-2xl border border-slate-100 p-6 grid grid-cols-3 gap-6 z-50">
-                  {/* Decorative accent */}
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full w-0 h-0 border-l-8 border-r-8 border-b-8 border-l-transparent border-r-transparent border-b-white" />
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[760px] bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-8 grid grid-cols-3 gap-6 z-50">
                   {services.map((group) => (
                     <div key={group.category}>
-                      <p className="text-xs font-semibold tracking-widest uppercase mb-2" style={{ color: 'var(--gold-500)' }}>
+                      <p className="text-xs font-bold tracking-widest uppercase mb-3 text-accent">
                         {group.category}
                       </p>
                       <ul className="space-y-1.5">
@@ -108,8 +99,7 @@ export default function Header() {
                           <li key={item}>
                             <Link
                               href="/services"
-                              className="text-sm text-slate-600 hover:text-green-800 transition-colors block py-0.5"
-                              style={{ '--tw-text-opacity': '1' } as React.CSSProperties}
+                              className="text-sm text-slate-500 hover:text-brand-black transition-colors block py-0.5"
                             >
                               {item}
                             </Link>
@@ -118,26 +108,21 @@ export default function Header() {
                       </ul>
                     </div>
                   ))}
-                  <div className="col-span-3 pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-xs text-slate-400">Comprehensive solutions for educational institutions</span>
-                    <Link href="/services" className="text-xs font-semibold px-4 py-2 rounded-full text-white transition-colors" style={{ background: 'var(--green-800)' }}>
-                      View All Services →
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>
 
-            <Link href="/team" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
+            <Link href="/team" className="text-sm font-medium text-slate-600 hover:text-brand-black transition-colors">
               Team
             </Link>
-            <Link href="/companies" className={`text-sm font-medium transition-colors ${textShouldBeDark ? 'text-slate-700 hover:text-green-800' : 'text-white/90 hover:text-white'}`}>
+
+            <Link href="/companies" className="text-sm font-medium text-slate-600 hover:text-brand-black transition-colors">
               Group Companies
             </Link>
+
             <Link
               href="/contact"
-              className={`text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:opacity-90 hover:shadow-md ${textShouldBeDark ? 'text-white' : 'text-green-900 bg-white hover:bg-white/90'}`}
-              style={textShouldBeDark ? { background: 'var(--green-800)' } : {}}
+              className="text-sm font-semibold px-6 py-3 rounded-full bg-brand-black text-white hover:bg-slate-800 transition-all shadow-lg shadow-black/10"
             >
               Contact Us
             </Link>
@@ -146,8 +131,7 @@ export default function Header() {
           {/* Mobile Menu */}
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
-              className="lg:hidden p-2 rounded-xl transition-all active:scale-95 hover:bg-black/5"
-              style={{ color: textShouldBeDark ? 'var(--green-800)' : 'white' }}
+              className="lg:hidden p-2 rounded-xl transition-all active:scale-95 text-brand-black"
               aria-label="Open navigation menu"
             >
               <Menu className="w-7 h-7" />
@@ -156,16 +140,16 @@ export default function Header() {
               <div className="flex flex-col h-full bg-white text-slate-900">
                 <div className="p-8 border-b border-slate-100 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-green-900/10" style={{ background: 'var(--green-800)' }}>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center shadow-lg shadow-orange-500/10" style={{ background: 'var(--accent-orange)' }}>
                       <GraduationCap className="w-6 h-6 text-white" />
                     </div>
-                    <span className="font-bold text-xl tracking-tight" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-800)' }}>EDIFY</span>
+                    <span className="font-bold text-xl tracking-tight text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>EDIFY</span>
                   </div>
                   <button onClick={() => setMobileOpen(false)} className="p-2 rounded-lg bg-slate-50 text-slate-400">
                     <X className="w-5 h-5" />
                   </button>
                 </div>
-                
+
                 <nav className="flex-1 px-4 py-8 overflow-y-auto space-y-2">
                   <Link href="/" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Overview</Link>
 
@@ -181,13 +165,13 @@ export default function Header() {
                       <div className="mx-2 space-y-1 bg-slate-50/50 rounded-2xl p-2 mt-1">
                         {services.map((g) => (
                           <div key={g.category} className="py-2 first:pt-1 last:pb-1">
-                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 text-gold-500" style={{ color: 'var(--gold-500)' }}>{g.category}</p>
+                            <p className="text-[10px] font-bold tracking-[0.2em] uppercase px-4 py-2 text-accent">{g.category}</p>
                             {g.items.map((item) => (
-                              <Link 
-                                key={item} 
-                                href="/services" 
-                                onClick={() => setMobileOpen(false)} 
-                                className="block px-4 py-2 text-[14px] font-medium text-slate-600 hover:text-green-800 active:bg-white rounded-xl transition-all"
+                              <Link
+                                key={item}
+                                href="/services"
+                                onClick={() => setMobileOpen(false)}
+                                className="block px-4 py-2 text-[14px] font-medium text-slate-600 hover:text-brand-black active:bg-white rounded-xl transition-all"
                               >
                                 {item}
                               </Link>
@@ -197,7 +181,7 @@ export default function Header() {
                       </div>
                     )}
                   </div>
-                  
+
                   <Link href="/team" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Team</Link>
                   <Link href="/companies" onClick={() => setMobileOpen(false)} className="flex items-center px-4 py-4 text-base font-semibold text-slate-700 hover:bg-slate-50 rounded-2xl transition-colors">Group Companies</Link>
                 </nav>
@@ -206,8 +190,7 @@ export default function Header() {
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className="flex items-center justify-center w-full text-base font-bold px-6 py-4 rounded-2xl text-white shadow-xl shadow-green-900/20 active:scale-[0.98] transition-all"
-                    style={{ background: 'var(--green-800)' }}
+                    className="flex items-center justify-center w-full text-base font-bold px-6 py-4 rounded-full text-white bg-brand-black shadow-xl shadow-black/20 active:scale-[0.98] transition-all"
                   >
                     Contact Us
                   </Link>

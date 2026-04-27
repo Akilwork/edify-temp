@@ -2,18 +2,15 @@
 
 @layer base {
   :root {
-    /* Brand Tokens */
-    --green-900: #0d3328;
-    --green-800: #1F5E4E;
-    --green-700: #246b59;
-    --green-600: #2d8068;
-    --green-100: #e8f4f1;
-    --green-50:  #f3faf8;
-
-    --gold-500: #C9A24A;
-    --gold-400: #d9b56a;
-    --gold-300: #e5c98a;
-    --gold-100: #faf3e0;
+    /* Brand Tokens - New Ethereal Palette */
+    --brand-black: #000000;
+    --brand-white: #ffffff;
+    
+    --accent-orange: #F97316;
+    --accent-blue: #6366F1;
+    
+    --bg-ethereal-1: #FFF5F1; /* Soft Peach */
+    --bg-ethereal-2: #EEF2FF; /* Soft Lavender */
 
     --slate-900: #111827;
     --slate-700: #374151;
@@ -31,7 +28,7 @@
     /* shadcn compat */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-    --primary: 157 50% 24%;
+    --primary: 222.2 47.4% 11.2%; /* Black/Slate */
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -43,8 +40,8 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 157 50% 24%;
-    --radius: 0.5rem;
+    --ring: 215 20.2% 65.1%;
+    --radius: 2rem; /* More rounded for pill aesthetic */
   }
 }
 
@@ -93,43 +90,32 @@
     padding-bottom: var(--section-gap);
   }
 
-  .gold-rule::after {
+  .bg-ethereal {
+    background: linear-gradient(135deg, var(--bg-ethereal-1) 0%, var(--white) 50%, var(--bg-ethereal-2) 100%);
+  }
+
+  .accent-rule::after {
     content: '';
     display: block;
     width: 3rem;
     height: 3px;
-    background: var(--gold-500);
+    background: var(--accent-orange);
     margin-top: 0.75rem;
   }
 
-  .gold-rule-center::after {
+  .accent-rule-center::after {
     content: '';
     display: block;
     width: 3rem;
     height: 3px;
-    background: var(--gold-500);
+    background: var(--accent-orange);
     margin: 0.75rem auto 0;
   }
 
-  .grain-overlay {
-    position: relative;
-  }
-
-  .grain-overlay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1;
-    border-radius: inherit;
-  }
-
-  .text-gold      { color: var(--gold-500); }
-  .text-green     { color: var(--green-800); }
-  .bg-green-brand { background-color: var(--green-800); }
-  .bg-green-deep  { background-color: var(--green-900); }
-  .border-gold    { border-color: var(--gold-500); }
+  .text-brand-black { color: var(--brand-black); }
+  .text-accent      { color: var(--accent-orange); }
+  .bg-brand-black   { background-color: var(--brand-black); }
+  .border-accent    { border-color: var(--accent-orange); }
 }
 
 /* Animations */
@@ -145,4 +131,4 @@
 /* Custom scrollbar */
 ::-webkit-scrollbar        { width: 6px; }
 ::-webkit-scrollbar-track  { background: var(--slate-100); }
-::-webkit-scrollbar-thumb  { background: var(--green-700); border-radius: 3px; }
+::-webkit-scrollbar-thumb  { background: var(--accent-orange); border-radius: 3px; }

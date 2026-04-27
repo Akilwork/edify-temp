@@ -9,26 +9,35 @@ export const metadata: Metadata = {
 
 function PageHero() {
   return (
-    <section className="pt-40 pb-20 relative overflow-hidden bg-[#F7F8FC]">
-      {/* Background Shapes */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[60%] rounded-full bg-purple-100/50 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[60%] rounded-full bg-blue-100/50 blur-[120px] pointer-events-none" />
+    <section className="pt-48 pb-24 relative overflow-hidden bg-ethereal">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(var(--slate-300) 0.5px, transparent 0.5px)`,
+            backgroundSize: '32px 32px'
+          }}
+        />
+      </div>
 
       <div className="container-edify relative z-10 flex flex-col items-center text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm border border-slate-100 mb-6">
-          <span className="w-2 h-2 rounded-full bg-purple-400" />
-          <span className="text-xs font-semibold tracking-widest uppercase text-slate-600">
+        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white shadow-sm border border-white/20 mb-8 transition-transform hover:scale-105">
+          <span className="w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_8px_var(--accent-orange)]" />
+          <span className="text-sm font-bold tracking-[0.2em] uppercase text-slate-500">
             Our Services
           </span>
         </div>
         
         <h1
-          className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-tight max-w-4xl"
+          className="text-5xl md:text-6xl lg:text-7xl font-black text-brand-black mb-8 leading-[1.1] max-w-5xl tracking-tight"
+          style={{ fontFamily: 'Playfair Display, serif' }}
         >
-          Comprehensive Solutions for Modern Education
+          Comprehensive Solutions for <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black via-slate-600 to-brand-black">Modern Education</span>
         </h1>
         
-        <p className="text-slate-500 text-lg md:text-xl max-w-2xl leading-relaxed">
+        <p className="text-slate-500 text-xl md:text-2xl max-w-3xl leading-relaxed font-medium">
           Integrated management and strategic support for the entire educational lifecycle, empowering institutions to thrive.
         </p>
       </div>

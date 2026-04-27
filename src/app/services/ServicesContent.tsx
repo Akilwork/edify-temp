@@ -119,17 +119,19 @@ function ServiceCard({ icon: Icon, title, desc, accent }: { icon: LucideIcon; ti
 
 export default function ServicesContent() {
   return (
-    <div className="bg-[#F7F8FC] pb-24">
+    <div className="bg-white pb-32">
       {/* Service categories */}
       <div className="section-gap pt-0">
-        <div className="container-edify space-y-24">
+        <div className="container-edify space-y-32">
           {serviceCategories.map((category) => (
             <section key={category.id} id={category.id}>
-              <div className="flex flex-col items-center text-center mb-12">
-                <h2 className="text-3xl font-extrabold text-slate-900 mb-4">{category.label}</h2>
-                <div className="h-1 w-12 rounded-full" style={{ backgroundColor: category.accent }} />
+              <div className="flex flex-col items-center text-center mb-16">
+                <div className="h-1.5 w-16 rounded-full bg-accent mb-6" />
+                <h2 className="text-4xl md:text-5xl font-black text-brand-black tracking-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  {category.label}
+                </h2>
               </div>
-              <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" stagger={0.1}>
+              <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" stagger={0.1}>
                 {category.services.map((svc) => (
                   <ServiceCard key={svc.title} {...svc} accent={category.accent} />
                 ))}
@@ -141,21 +143,29 @@ export default function ServicesContent() {
 
       {/* Bottom CTA */}
       <FadeIn className="container-edify">
-        <div className="rounded-3xl p-12 md:p-20 text-center relative overflow-hidden bg-white border border-slate-100 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)]">
-          {/* Subtle Background Elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-purple-100/50 blur-[80px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-100/50 blur-[80px] pointer-events-none" />
+        <div className="rounded-[3rem] p-16 md:p-24 text-center relative overflow-hidden bg-brand-black shadow-2xl shadow-black/20">
+          {/* Glowing Accents */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+            <div
+              className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]"
+              style={{ background: 'var(--accent-orange)' }}
+            />
+            <div
+              className="absolute -bottom-10 -left-10 w-[300px] h-[300px] rounded-full blur-[80px]"
+              style={{ background: 'var(--accent-blue)' }}
+            />
+          </div>
           
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">
-              Looking for the right solution for your institution?
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-10 tracking-tight leading-tight" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Looking for the right solution <br /> for your institution?
             </h2>
-            <p className="text-slate-500 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-slate-400 text-xl mb-14 max-w-3xl mx-auto leading-relaxed font-medium">
               Our team of experts will work closely with you to understand your institution's unique needs and design the perfect integrated service package.
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 hover:shadow-lg bg-slate-900 hover:bg-slate-800"
+              className="inline-flex items-center gap-3 px-12 py-5 rounded-full text-white font-bold transition-all duration-300 hover:scale-105 bg-accent shadow-2xl shadow-orange-500/20"
             >
               Contact Us <ArrowRight className="w-5 h-5" />
             </Link>

@@ -28,32 +28,35 @@ const initialForm: FormState = { name: '', email: '', phone: '', subject: '', me
 
 function PageHero() {
   return (
-    <section
-      className="pt-40 pb-20 relative overflow-hidden"
-      style={{ background: 'var(--green-900)' }}
-    >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="pt-48 pb-24 relative overflow-hidden bg-ethereal">
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
         <div
-          className="absolute top-0 right-0 w-1/2 h-full opacity-[0.04]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `repeating-linear-gradient(45deg, var(--gold-500), var(--gold-500) 1px, transparent 1px, transparent 50px)`,
+            backgroundImage: `radial-gradient(var(--slate-300) 0.5px, transparent 0.5px)`,
+            backgroundSize: '32px 32px'
           }}
         />
       </div>
+
       <div className="container-edify relative z-10">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-px w-10" style={{ background: 'var(--gold-500)' }} />
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: 'var(--gold-400)' }}>
+        <div className="flex items-center gap-3 mb-8">
+          <span className="text-sm font-bold tracking-[0.2em] uppercase text-accent">
             Get In Touch
           </span>
+          <div className="h-px w-12 bg-slate-200" />
         </div>
+        
         <h1
-          className="text-5xl md:text-6xl text-white mb-5 leading-tight"
+          className="text-5xl md:text-7xl font-black text-brand-black mb-8 leading-[1.1] tracking-tight"
           style={{ fontFamily: 'Playfair Display, serif' }}
         >
-          Contact Us
+          Let's Start a <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black via-slate-600 to-brand-black">Conversation</span>
         </h1>
-        <p className="text-slate-300 text-lg max-w-xl leading-relaxed">
+        
+        <p className="text-slate-500 text-xl md:text-2xl max-w-2xl leading-relaxed font-medium">
           Ready to transform your institution? Our team is here to discuss how EDIFY can support your goals.
         </p>
       </div>
@@ -82,21 +85,19 @@ function ContactForm() {
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <div
-          className="w-16 h-16 rounded-full flex items-center justify-center mb-6"
-          style={{ background: 'var(--green-50)' }}
+          className="w-20 h-20 rounded-full flex items-center justify-center mb-8 bg-orange-50 shadow-inner"
         >
-          <CheckCircle2 className="w-8 h-8" style={{ color: 'var(--green-800)' }} />
+          <CheckCircle2 className="w-10 h-10 text-accent" />
         </div>
-        <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
+        <h3 className="text-3xl font-bold mb-4 text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
           Inquiry Received
         </h3>
-        <p className="text-slate-500 max-w-sm leading-relaxed">
+        <p className="text-slate-500 text-lg max-w-sm leading-relaxed">
           Thank you for reaching out. A member of our team will get back to you within 1–2 business days.
         </p>
         <button
           onClick={() => { setSubmitted(false); setForm(initialForm); }}
-          className="mt-8 text-sm font-semibold transition-colors"
-          style={{ color: 'var(--green-800)' }}
+          className="mt-10 text-sm font-bold uppercase tracking-[0.2em] text-accent hover:text-brand-black transition-colors"
         >
           Send another inquiry →
         </button>
@@ -105,14 +106,13 @@ function ContactForm() {
   }
 
   const inputClass =
-    'w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all bg-slate-50 focus:bg-white';
-  const focusStyle = { '--tw-ring-color': 'var(--green-800)' } as React.CSSProperties;
+    'w-full px-5 py-4 rounded-2xl border border-slate-200 text-base text-brand-black placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-all bg-slate-50 focus:bg-white';
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-xs font-semibold text-slate-600 mb-1.5 tracking-wide uppercase" htmlFor="name">
+          <label className="block text-xs font-bold text-slate-500 mb-2.5 tracking-[0.1em] uppercase" htmlFor="name">
             Full Name *
           </label>
           <input
@@ -124,11 +124,10 @@ function ContactForm() {
             onChange={handleChange}
             placeholder="Your full name"
             className={inputClass}
-            style={focusStyle}
           />
         </div>
         <div>
-          <label className="block text-xs font-semibold text-slate-600 mb-1.5 tracking-wide uppercase" htmlFor="email">
+          <label className="block text-xs font-bold text-slate-500 mb-2.5 tracking-[0.1em] uppercase" htmlFor="email">
             Email Address *
           </label>
           <input
@@ -140,14 +139,13 @@ function ContactForm() {
             onChange={handleChange}
             placeholder="you@institution.com"
             className={inputClass}
-            style={focusStyle}
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
-          <label className="block text-xs font-semibold text-slate-600 mb-1.5 tracking-wide uppercase" htmlFor="phone">
+          <label className="block text-xs font-bold text-slate-500 mb-2.5 tracking-[0.1em] uppercase" htmlFor="phone">
             Phone Number
           </label>
           <input
@@ -158,11 +156,10 @@ function ContactForm() {
             onChange={handleChange}
             placeholder="+971 00 000 0000"
             className={inputClass}
-            style={focusStyle}
           />
         </div>
         <div>
-          <label className="block text-xs font-semibold text-slate-600 mb-1.5 tracking-wide uppercase" htmlFor="subject">
+          <label className="block text-xs font-bold text-slate-500 mb-2.5 tracking-[0.1em] uppercase" htmlFor="subject">
             Subject *
           </label>
           <select
@@ -172,7 +169,6 @@ function ContactForm() {
             value={form.subject}
             onChange={handleChange}
             className={inputClass}
-            style={focusStyle}
           >
             <option value="">Select a topic…</option>
             <option>Academic & Educational Services</option>
@@ -188,7 +184,7 @@ function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-xs font-semibold text-slate-600 mb-1.5 tracking-wide uppercase" htmlFor="message">
+        <label className="block text-xs font-bold text-slate-500 mb-2.5 tracking-[0.1em] uppercase" htmlFor="message">
           Message *
         </label>
         <textarea
@@ -200,30 +196,28 @@ function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us about your institution and what you're looking to achieve…"
           className={`${inputClass} resize-none`}
-          style={focusStyle}
         />
       </div>
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 hover:shadow-lg disabled:opacity-60"
-        style={{ background: 'linear-gradient(135deg, var(--green-800), var(--green-700))' }}
+        className="w-full flex items-center justify-center gap-3 px-8 py-5 rounded-full text-lg font-bold text-white transition-all hover:scale-[1.02] bg-brand-black shadow-xl shadow-black/10 disabled:opacity-60"
       >
         {loading ? (
           <>
-            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
             Sending…
           </>
         ) : (
           <>
             Submit Inquiry
-            <Send className="w-4 h-4" />
+            <Send className="w-5 h-5" />
           </>
         )}
       </button>
 
-      <p className="text-xs text-slate-400 text-center">
+      <p className="text-xs text-slate-400 text-center font-medium">
         We typically respond within 1–2 business days.
       </p>
     </form>
@@ -234,45 +228,44 @@ export default function ContactPage() {
   const office = offices[0];
 
   return (
-    <main>
+    <main className="bg-white">
       <PageHero />
 
       <section className="section-gap">
         <div className="container-edify">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Left: Contact info */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 space-y-10">
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase mb-4" style={{ color: 'var(--gold-500)' }}>
+                <p className="text-xs font-bold tracking-[0.2em] uppercase mb-4 text-accent">
                   {office.label}
                 </p>
-                <h2 className="text-3xl mb-6 gold-rule" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
+                <h2 className="text-4xl lg:text-5xl font-extrabold mb-8 accent-rule text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
                   {office.city} Office
                 </h2>
               </div>
 
-              <div className="space-y-5">
+              <div className="space-y-8">
                 {[
                   { icon: MapPin, label: 'Address', value: office.address },
                   { icon: Phone, label: 'Phone', value: office.phone, href: `tel:${office.phone}` },
                   { icon: Mail, label: 'Email', value: office.email, href: `mailto:${office.email}` },
                   { icon: Clock, label: 'Office Hours', value: office.hours },
                 ].map(({ icon: Icon, label, value, href }) => (
-                  <div key={label} className="flex items-start gap-4">
+                  <div key={label} className="flex items-start gap-5 group">
                     <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: 'var(--green-50)' }}
+                      className="w-12 h-12 rounded-[1rem] flex items-center justify-center flex-shrink-0 bg-slate-50 border border-slate-100 transition-all duration-300 group-hover:bg-accent group-hover:border-accent"
                     >
-                      <Icon className="w-5 h-5" style={{ color: 'var(--green-800)' }} />
+                      <Icon className="w-5 h-5 text-slate-600 transition-colors group-hover:text-white" />
                     </div>
                     <div>
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-0.5">{label}</p>
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{label}</p>
                       {href ? (
-                        <a href={href} className="text-sm text-slate-700 hover:text-green-800 transition-colors font-medium">
+                        <a href={href} className="text-lg text-slate-700 hover:text-accent transition-colors font-bold">
                           {value}
                         </a>
                       ) : (
-                        <p className="text-sm text-slate-700 font-medium">{value}</p>
+                        <p className="text-lg text-slate-700 font-bold">{value}</p>
                       )}
                     </div>
                   </div>
@@ -280,7 +273,7 @@ export default function ContactPage() {
               </div>
 
               {/* Map embed */}
-              <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-sm mt-6" style={{ height: '240px' }}>
+              <div className="rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm mt-8 transition-transform hover:shadow-xl duration-500" style={{ height: '320px' }}>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.5248867839226!2d55.26397021503044!3d25.18536798390152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f69d8b419d5ef%3A0x800c1bfb3c1e0f7b!2sBusiness%20Bay%2C%20Dubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sae!4v1680000000000!5m2!1sen!2sae"
                   width="100%"
@@ -296,12 +289,12 @@ export default function ContactPage() {
 
             {/* Right: Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-8">
-                <div className="mb-8">
-                  <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-900)' }}>
+              <div className="bg-slate-50 rounded-[3rem] p-10 lg:p-12 border border-slate-100 shadow-sm">
+                <div className="mb-10">
+                  <h2 className="text-3xl font-black mb-4 text-brand-black" style={{ fontFamily: 'Playfair Display, serif' }}>
                     Send an Inquiry
                   </h2>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-lg text-slate-500 font-medium">
                     Fill in the form below and our team will reach out to discuss how we can support your institution.
                   </p>
                 </div>
@@ -311,7 +304,7 @@ export default function ContactPage() {
           </div>
 
           {/* Bottom: Quick links */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { label: 'Explore Services', sub: 'See our full service offering', href: '/services' },
               { label: 'Meet the Team', sub: 'The people you\'ll work with', href: '/team' },
@@ -320,18 +313,16 @@ export default function ContactPage() {
               <a
                 key={card.label}
                 href={card.href}
-                className="group flex items-center justify-between p-5 rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all"
-                style={{ background: 'var(--green-50)' }}
+                className="group flex items-center justify-between p-8 rounded-[2rem] border border-slate-100 bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1 transition-all duration-500"
               >
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">{card.label}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">{card.sub}</p>
+                  <p className="text-lg font-bold text-brand-black">{card.label}</p>
+                  <p className="text-sm text-slate-500 font-medium mt-1">{card.sub}</p>
                 </div>
                 <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-white flex-shrink-0 transition-transform group-hover:translate-x-1"
-                  style={{ background: 'var(--green-800)' }}
+                  className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-slate-100 text-slate-400 group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300"
                 >
-                  <Send className="w-3.5 h-3.5 rotate-45" />
+                  <Send className="w-4 h-4 rotate-45 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </a>
             ))}

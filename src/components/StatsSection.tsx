@@ -42,34 +42,23 @@ function StatItem({ end, suffix = '', prefix = '', label, description }: StatPro
   }, [end]);
 
   return (
-    <div ref={ref} className="text-center group">
-      <div className="text-5xl font-bold mb-2 transition-all duration-300 group-hover:scale-105" style={{ fontFamily: 'Playfair Display, serif', color: 'var(--green-800)' }}>
+    <div ref={ref} className="text-left group border-l-2 border-slate-100 pl-8 transition-all duration-500 hover:border-brand-black">
+      <div className="text-4xl md:text-5xl font-extrabold mb-1 tracking-tight text-brand-black transition-all duration-300 group-hover:scale-105">
         {prefix}{count.toLocaleString()}{suffix}
       </div>
-      <div className="text-base font-semibold text-slate-800 mb-1">{label}</div>
-      <div className="text-sm text-slate-500">{description}</div>
+      <div className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">{label}</div>
+      <div className="text-xs text-slate-500 font-medium">{description}</div>
     </div>
   );
 }
 
 export default function StatsSection() {
   return (
-    <section className="section-gap" style={{ background: 'var(--green-50)' }}>
+    <section className="py-20 bg-white">
       <div className="container-edify">
-        <div className="text-center mb-14">
-          <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold-500)' }}>
-            By the Numbers
-          </p>
-          <h2 className="text-3xl md:text-4xl mb-4 gold-rule-center" style={{ color: 'var(--green-900)' }}>
-            Our Scale & Impact
-          </h2>
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
           {stats.map((s) => (
-            <div key={s.label} className="relative">
-              <StatItem {...s} />
-              {/* Vertical divider – hide on last */}
-            </div>
+            <StatItem key={s.label} {...s} />
           ))}
         </div>
       </div>
