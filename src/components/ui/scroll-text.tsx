@@ -11,7 +11,7 @@ interface TextAnimationProps {
     visible: any;
   };
   classname?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   letterAnime?: boolean;
   lineAnime?: boolean;
   direction?: 'up' | 'down' | 'left' | 'right';
@@ -40,13 +40,14 @@ export default function TextAnimation({
   text,
   variants,
   classname,
-  as: Component = 'h1',
+  as,
   letterAnime = false,
   lineAnime = false,
   direction = 'up',
   once = true,
   delay = 0,
 }: TextAnimationProps) {
+  const Component = (as || 'h1') as any;
   const ref = useRef(null);
   const isInView = useInView(ref, { once, margin: '-20%' });
 
