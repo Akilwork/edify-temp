@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Inter', 'DM Sans', sans-serif;
+}
+
 @layer base {
   :root {
     /* Brand Tokens - New Ethereal Palette */
@@ -21,7 +25,29 @@
 
     --white: #ffffff;
 
+    /* Enter Design System - Minimalist Inter Palette */
+    --enter-black: #000000;
+    --enter-white: #ffffff;
+    --enter-gray-100: #f5f5f5;
+    --enter-gray-200: #e5e5e5;
+    --enter-gray-300: #d4d4d4;
+    --enter-gray-400: #a3a3a3;
+    --enter-gray-500: #737373;
+    --enter-gray-600: #525252;
+    --enter-gray-700: #404040;
+    --enter-gray-800: #262626;
+    --enter-gray-900: #171717;
+    
+    --enter-accent: #000000; /* Minimalist accent is often black or a single color */
+    --enter-accent-foreground: #ffffff;
+
     /* Spacing rhythm */
+    --enter-gap-xs: 0.5rem;
+    --enter-gap-sm: 1rem;
+    --enter-gap-md: 2rem;
+    --enter-gap-lg: 4rem;
+    --enter-gap-xl: 8rem;
+
     --section-gap: 5rem;
     --container-max: 1280px;
 
@@ -55,7 +81,7 @@
   }
 
   body {
-    font-family: 'DM Sans', 'DM Sans fallback', sans-serif;
+    font-family: 'Inter', 'DM Sans', 'DM Sans fallback', sans-serif;
     color: var(--slate-900);
     background: var(--white);
     -webkit-font-smoothing: antialiased;
@@ -63,7 +89,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Playfair Display', 'Playfair Display fallback', serif;
+    font-family: 'Jost', 'Jost fallback', sans-serif;
   }
 
   h1 {
@@ -79,9 +105,14 @@
   }
 
   h4, h5, h6 {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Jost', 'Jost fallback', sans-serif;
     font-weight: 600;
     letter-spacing: -0.01em;
+  }
+
+  /* Disable all text shadows */
+  h1, h2, h3, h4, h5, h6, p, span, a, button {
+    text-shadow: none !important;
   }
 }
 

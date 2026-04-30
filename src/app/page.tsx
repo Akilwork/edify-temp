@@ -1,100 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react';
-import { trustIndicators, aboutFeatures, companies, uaeCities, timeline } from '@/constants';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { aboutFeatures, uaeCities, timeline } from '@/constants';
 import StatsSection from '@/components/StatsSection';
-import { FadeIn, StaggerChildren, ScaleIn } from '@/components/ui/animations';
+import { FadeIn, ScaleIn } from '@/components/ui/animations';
 import FeatureSections from '@/components/feature-sections';
 import { InfinityBrand } from '@/components/ui/infinity-brand';
-
-// ─── Hero Section ──────────────────────────────────────────────────────────────
-function HeroSection() {
-  return (
-    <section
-      className="relative min-h-screen flex items-center overflow-hidden bg-ethereal pt-20"
-    >
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(var(--slate-300) 0.5px, transparent 0.5px)`,
-            backgroundSize: '32px 32px'
-          }}
-        />
-      </div>
-
-      <div className="container-edify relative z-10 py-20">
-        <div className="max-w-5xl mx-auto text-center">
-          <FadeIn y={20} duration={1}>
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className="text-sm font-bold tracking-[0.2em] uppercase text-accent">
-                MHUDA TRUST INITIATIVE
-              </span>
-            </div>
-          </FadeIn>
-
-          <FadeIn y={30} delay={0.2} duration={1.2}>
-            <h1 className="mb-10">
-              Empowering Education & <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black via-slate-600 to-brand-black">Institutional Excellence</span>
-            </h1>
-          </FadeIn>
-
-          <FadeIn y={20} delay={0.4}>
-            <p className="text-xl md:text-2xl text-slate-500 mb-14 leading-relaxed max-w-4xl mx-auto font-medium">
-              A full-spectrum management consultancy serving educational institutions across the UAE and beyond — from academic governance to operational infrastructure.
-            </p>
-          </FadeIn>
-
-          <FadeIn y={20} delay={0.6}>
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link
-                href="/services"
-                className="group inline-flex items-center gap-2.5 px-10 py-5 rounded-full text-lg font-bold text-white bg-brand-black transition-all hover:scale-105 shadow-2xl shadow-black/20"
-              >
-                <span>Explore Services</span>
-                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2.5 px-10 py-5 rounded-full text-lg font-bold text-brand-black border-2 border-slate-200 hover:bg-white hover:border-brand-black transition-all"
-              >
-                Book A Free Call
-              </Link>
-            </div>
-          </FadeIn>
-
-        </div>
-      </div>
-
-      {/* Bottom Anchor: Trusted indicators */}
-      <div className="absolute bottom-12 left-0 right-0 z-20">
-        <div className="container-edify">
-          <FadeIn y={20} delay={0.8}>
-            <div className="flex flex-col items-center gap-6">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">As seen on</span>
-              <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-                {trustIndicators.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-2 text-sm text-slate-600">
-                    <Icon className="w-5 h-5 text-brand-black" />
-                    <span className="font-semibold">{label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <div className="w-px h-12 animate-pulse" style={{ background: 'linear-gradient(to bottom, var(--accent-orange), transparent)' }} />
-      </div>
-    </section>
-  );
-}
+import HeroSection from '@/components/HeroSection';
+import ParallelEvolutionSection from '@/components/ParallelEvolutionSection';
+import BackgroundWatermark from '@/components/BackgroundWatermark';
+import AffiliatedLogos from '@/components/AffiliatedLogos';
+import TurnoverSection from '@/components/TurnoverSection';
+import ScrollTextAnimation from '@/components/ScrollTextAnimation';
+import ZoomParallaxSection from '@/components/ZoomParallaxSection';
 
 function AboutSection() {
   return (
@@ -142,7 +61,7 @@ function AboutSection() {
             
             <div className="space-y-6">
               <p className="text-xl text-slate-700 leading-relaxed font-medium">
-                EDIFY Management Consultancy LLP is a premier education management firm under the umbrella of the <strong className="text-brand-black">MHUDA Trust</strong>.
+                Incorporated in <strong className="text-brand-black">2018</strong>, EDIFY Management Consultancy LLP is a premier education management firm under the umbrella of the <strong className="text-brand-black">MHUDA Trust</strong>.
               </p>
               <p className="text-lg text-slate-500 leading-relaxed">
                 We bridge the gap between academic vision and operational reality. Our multidisciplinary approach provides institutions with a single, trusted partner for everything from academic governance and HR to digital innovation and facilities management.
@@ -166,19 +85,7 @@ function AboutSection() {
   );
 }
 
-// ─── Group Companies ────────────────────────────────────────────────────────────
-
-function GroupCompaniesSection() {
-  return (
-    <section className="py-16 relative overflow-hidden bg-white">
-      <div className="container-edify relative z-10">
-        <FadeIn delay={0.2}>
-          <InfinityBrand />
-        </FadeIn>
-      </div>
-    </section>
-  );
-}
+// ─── Presence ────────────────────────────────────────────────────────────
 
 function UAEPresenceSection() {
   return (
@@ -221,7 +128,7 @@ function UAEPresenceSection() {
                     {uaeCities.map((city) => (
                       <div key={city} className="flex items-center gap-4 group/city">
                         <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm transition-all duration-300 group-hover/city:shadow-md group-hover/city:scale-110">
-                          <div className="w-2.5 h-2.5 rounded-full bg-accent shadow-[0_0_12px_var(--accent-orange)]" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-accent" />
                         </div>
                         <span className="text-lg font-bold text-slate-700 group-hover/city:text-brand-black transition-colors">{city}</span>
                       </div>
@@ -296,7 +203,7 @@ function CTABanner() {
         <div className="flex flex-wrap justify-center gap-6">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-10 py-5 rounded-full text-lg font-bold transition-all hover:scale-105 bg-accent text-white shadow-2xl shadow-orange-500/20"
+            className="group inline-flex items-center gap-2 px-10 py-5 rounded-full text-lg font-bold transition-all hover:scale-105 bg-accent text-white"
           >
             Get in Touch
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -315,13 +222,18 @@ function CTABanner() {
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="relative">
+      <BackgroundWatermark />
       <HeroSection />
-      <GroupCompaniesSection />
+      <AffiliatedLogos />
       <AboutSection />
+      <TurnoverSection />
       <UAEPresenceSection />
+      <ParallelEvolutionSection />
       <StatsSection />
       <FeatureSections />
+      {/* <ScrollTextAnimation /> */}
+      <ZoomParallaxSection />
       <CTABanner />
     </main>
   );

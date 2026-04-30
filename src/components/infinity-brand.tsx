@@ -1,28 +1,16 @@
 import Image from 'next/image';
 
 const companies = [
-  'image 707.png',
-  'image 709.png',
-  'image 710.png',
+  '1.png',
+  '2.png',
+  '3.png',
+  '4.png',
+  '5.png',
+  '7.png',
+  '8.png',
+  '9.png',
+  '10.png',
   'image 711.png',
-  'image 712.png',
-  'image 713.png',
-  'image 715.png',
-  'image 716.png',
-  'image 717.png',
-  'image 718.png',
-  'image 719.png',
-  'image 720.png',
-  'image 721.png',
-  'image 722.png',
-  'image 723.png',
-  'image 726.png',
-  'image 727.png',
-  'image 729.png',
-  'image 730.png',
-  'image.png',
-  'image705.png',
-  'imprint-logo.png',
 ];
 
 export const InfinityBrand = () => {

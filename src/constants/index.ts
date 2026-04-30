@@ -14,16 +14,28 @@ export const aboutFeatures: string[] = [
   'MHUDA Trust network',
 ];
 
-export const companies: { name: string; tagline: string; href: string }[] = [
-  { name: 'NIMS', tagline: 'National Institutions Management', href: '#' },
-  { name: 'ZASA', tagline: 'Education Solutions', href: '#' },
-  { name: 'SEED', tagline: 'Student Excellence & Dev.', href: '#' },
-  { name: 'Loyaltri', tagline: 'Loyalty & Engagement Platform', href: '#' },
-  { name: 'Imprint', tagline: 'Design & Communication', href: '#' },
-  { name: 'EMKE Garage', tagline: 'Innovation & Technology', href: '#' },
-  { name: 'Techno Alliance', tagline: 'EdTech Solutions', href: '#' },
-  { name: 'UniDesign', tagline: 'Branding & Visual Identity', href: '#' },
+export const companies: { name: string; tagline: string; href: string; logo: string }[] = [
+  { name: 'NIMS Schools', tagline: 'National Institutions Management', href: 'https://nimsschool.com', logo: '1.png' },
+  { name: 'ZASA', tagline: 'Education Solutions', href: 'https://zasauae.com', logo: '2.png' },
+  { name: 'SeeD', tagline: 'Student Excellence & Dev.', href: 'https://seed.ae', logo: '3.png' },
+  { name: 'Loyaltri', tagline: 'Loyalty & Engagement Platform', href: 'https://loyaltri.com', logo: 'image 711.png' },
+  { name: 'Safetri', tagline: 'Safety & Security Solutions', href: 'https://safetri.com', logo: '4.png' },
+  { name: 'EMKE Garage', tagline: 'Innovation & Technology', href: 'https://emkegarage.com', logo: '5.png' },
+  { name: 'IMPRINTES', tagline: 'Design & Communication', href: '#', logo: '7.png' },
+  { name: 'Toss Techo', tagline: 'EdTech Solutions', href: 'https://tosstecho.com', logo: '8.png' },
+  { name: 'UniDezine', tagline: 'Branding & Visual Identity', href: 'https://unidezine.com', logo: '9.png' },
+  { name: 'Company', tagline: '', href: '#', logo: '10.png' },
 ];
+
+export const turnoverData = {
+  total: 'AED 500M+',
+  growth: '25%',
+  highlights: [
+    'Consistent year-on-year financial growth since 2018',
+    'Diversified revenue streams across 10+ business verticals',
+    'Strong capital reserve for upcoming regional expansions'
+  ]
+};
 
 export const uaeCities: string[] = ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman'];
 
@@ -36,10 +48,10 @@ export const timeline: { year: string; title: string; desc: string }[] = [
   { year: '2024', title: 'Growth Phase', desc: 'Over 50 institutions in portfolio. New specialized services and facilities management launched.' },
 ];
 
-export const stats: { end: number; suffix?: string; prefix?: string; label: string; description: string }[] = [
-  { end: 50, suffix: '+', label: 'Institutions', description: 'Managed & Supported' },
-  { end: 120, suffix: '+', label: 'Projects in Pipeline', description: 'Across 5 countries' },
-  { end: 25000, suffix: '+', label: 'Students Impacted', description: 'Every academic year' },
+export const stats: { end: number; suffix?: string; prefix?: string; label: string; description: string; isDynamic?: boolean }[] = [
+  { end: 50, suffix: '+', label: 'Institutions', description: 'Currently operational in UAE' },
+  { end: 120, suffix: '+', label: 'Pipeline', description: 'Institutions in pipeline' },
+  { end: 15420, label: 'Visitors', description: 'Real-time visitor count', isDynamic: true },
   { end: 8, label: 'Countries', description: 'Our global footprint' },
 ];
 
@@ -58,5 +70,32 @@ export const featuresData: { image: string; title: string; desc: string }[] = [
     image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
     title: 'Technology Integration',
     desc: 'Deploying cutting-edge EdTech and robust digital infrastructure to future-proof learning.',
+  },
+];
+
+export const services = [
+  {
+    category: 'Academic & Education',
+    items: ['Academic Services', 'Educational Consultancy', 'School Management'],
+  },
+  {
+    category: 'HR & Recruitment',
+    items: ['Human Resource Services', 'Recruitment Services'],
+  },
+  {
+    category: 'Operations & Facilities',
+    items: ['Transport Services', 'Facilities Management', 'F&B Services'],
+  },
+  {
+    category: 'Technology & Innovation',
+    items: ['Software Consultancy', 'Software Development', 'Robotics & Innovation'],
+  },
+  {
+    category: 'Specialized Services',
+    items: ['Psychological Counselling', 'Therapeutic Consultancy', 'Special Needs'],
+  },
+  {
+    category: 'Business Support',
+    items: ['Financial Services', 'Designing & Printing', 'Uniform & Office Supplies'],
   },
 ];
