@@ -2,18 +2,18 @@
 
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { aboutFeatures, uaeCities, timeline } from '@/constants';
+import { aboutFeatures } from '@/constants';
 import StatsSection from '@/components/StatsSection';
 import { FadeIn, ScaleIn } from '@/components/ui/animations';
 import FeatureSections from '@/components/feature-sections';
-import { InfinityBrand } from '@/components/ui/infinity-brand';
 import HeroSection from '@/components/HeroSection';
 import ParallelEvolutionSection from '@/components/ParallelEvolutionSection';
 import BackgroundWatermark from '@/components/BackgroundWatermark';
 import AffiliatedLogos from '@/components/AffiliatedLogos';
 import TurnoverSection from '@/components/TurnoverSection';
-import ScrollTextAnimation from '@/components/ScrollTextAnimation';
 import ZoomParallaxSection from '@/components/ZoomParallaxSection';
+import GlobalPresenceSection from '@/components/GlobalPresenceSection';
+import CinematicScrollSection from '@/components/CinematicScrollSection';
 
 function AboutSection() {
   return (
@@ -85,93 +85,7 @@ function AboutSection() {
   );
 }
 
-// ─── Presence ────────────────────────────────────────────────────────────
 
-function UAEPresenceSection() {
-  return (
-    <section id="presence" className="section-gap relative bg-white">
-      <div className="container-edify">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          
-          {/* Left: Sticky Content */}
-          <div className="lg:sticky lg:top-32 lg:h-fit lg:w-1/2 space-y-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-sm uppercase tracking-[0.2em] font-bold text-accent">
-                  Regional Impact
-                </span>
-                <div className="h-px w-12 bg-slate-200" />
-              </div>
-              
-              <h2 className="mb-8 leading-[1.1]">
-                Scale and Impact <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black to-slate-400">Across the Region</span>
-              </h2>
-              
-              <p className="text-xl text-slate-500 leading-relaxed max-w-lg">
-                From our strategic hubs in the UAE to our growing international presence, we are committed to elevating educational standards worldwide.
-              </p>
-            </div>
-
-            {/* Map visual placeholder */}
-            <FadeIn>
-              <div
-                className="group rounded-[3rem] p-12 relative overflow-hidden transition-all duration-700 hover:shadow-2xl border border-slate-100 bg-slate-50"
-              >
-                <div className="relative z-10">
-                  <div className="flex items-center gap-2 mb-10">
-                    <div className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" />
-                    <span className="text-xs text-slate-500 uppercase tracking-[0.2em] font-bold">Active Hubs</span>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-y-8 gap-x-12">
-                    {uaeCities.map((city) => (
-                      <div key={city} className="flex items-center gap-4 group/city">
-                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-sm transition-all duration-300 group-hover/city:shadow-md group-hover/city:scale-110">
-                          <div className="w-2.5 h-2.5 rounded-full bg-accent" />
-                        </div>
-                        <span className="text-lg font-bold text-slate-700 group-hover/city:text-brand-black transition-colors">{city}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Right: Scrolling Timeline Cards */}
-          <div className="lg:w-1/2 space-y-10 lg:pt-8">
-            {timeline.map((item, i) => (
-              <FadeIn key={item.year} delay={i * 0.1}>
-                <div className="group relative bg-slate-50 rounded-[2.5rem] p-10 lg:p-12 border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-black/5 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                  <div className="absolute top-10 right-10 text-[10px] font-bold text-slate-300 uppercase tracking-[0.2em]">
-                    Milestone - 00{i + 1}
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <div 
-                      className="w-20 h-20 rounded-[2rem] flex items-center justify-center text-2xl font-black mb-10 transition-transform duration-500 group-hover:scale-110 bg-white shadow-sm text-brand-black border border-slate-100"
-                    >
-                      {item.year}
-                    </div>
-                    
-                    <h3 className="mb-6 leading-tight">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-lg text-slate-500 leading-relaxed group-hover:text-slate-700 transition-colors">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // ─── CTA Banner ────────────────────────────────────────────────────────────────
 function CTABanner() {
@@ -223,17 +137,18 @@ function CTABanner() {
 export default function HomePage() {
   return (
     <main className="relative">
-      <BackgroundWatermark />
-      <HeroSection />
+      {/* <BackgroundWatermark /> */}
+      {/* <HeroSection /> */}
+      <CinematicScrollSection />
       <AffiliatedLogos />
       <AboutSection />
       <TurnoverSection />
-      <UAEPresenceSection />
+      <GlobalPresenceSection />
       <ParallelEvolutionSection />
       <StatsSection />
       <FeatureSections />
       {/* <ScrollTextAnimation /> */}
-      <ZoomParallaxSection />
+      {/* <ZoomParallaxSection /> */}
       <CTABanner />
     </main>
   );

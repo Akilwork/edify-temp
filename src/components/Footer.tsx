@@ -32,6 +32,24 @@ const footerLinks = {
   ],
 };
 
+const contactItems = [
+  {
+    icon: MapPin,
+    href: '#',
+    label: 'Business Bay, Dubai, United Arab Emirates',
+  },
+  {
+    icon: Phone,
+    href: 'tel:+97100000000',
+    label: '+971 00 000 0000',
+  },
+  {
+    icon: Mail,
+    href: 'mailto:info@edify.ae',
+    label: 'info@edify.ae',
+  },
+];
+
 const socialLinks = [
   { icon: Globe, href: '#', label: 'Website' },
   { icon: Share2, href: '#', label: 'Social' },
@@ -71,153 +89,145 @@ function AnimatedContainer({ className, delay = 0.1, children }: AnimatedContain
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-black text-white pt-24">
-      {/* Subtle top glow */}
-      <div className="relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-white/20 blur rounded-full" />
-      </div>
+    <footer className="bg-[#000000] text-white overflow-hidden">
 
-      {/* Main footer grid */}
-      <div className="container-edify pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+      {/* ── Top section: tagline left + nav columns right ── */}
+      <div className="container-edify pt-20 pb-16">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-16 lg:gap-0">
 
-          {/* Brand column */}
-          <AnimatedContainer delay={0.1} className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-accent">
-                <GraduationCap className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <div className="font-bold text-2xl leading-none tracking-tight">
-                  EDIFY
-                </div>
-                <div className="text-[10px] text-slate-500 font-bold tracking-[0.3em] uppercase leading-none mt-1.5">
-                  Consultancy
-                </div>
-              </div>
+          {/* Left — brand badge + editorial tagline + socials */}
+          <AnimatedContainer delay={0.1} className="lg:w-1/2 lg:pr-16">
+
+            {/* Brand badge */}
+            <div className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 mb-10">
+              <GraduationCap className="w-3.5 h-3.5 text-white/60" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-white/60">
+                EDIFY Consultancy
+              </span>
             </div>
 
-            <p className="text-base text-slate-400 leading-relaxed mb-8 font-medium">
-              Empowering education and institutional excellence. Under the MHUDA Trust, we deliver comprehensive solutions for educational institutions worldwide.
-            </p>
-
-            <div className="flex items-center gap-3">
-              {socialLinks.map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:border-accent hover:bg-accent transition-all duration-300 cursor-pointer"
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
+            {/* Editorial tagline */}
+            <h2 className="text-4xl md:text-5xl font-light leading-[1.15] tracking-tight text-white">
+              Empowering education{' '}
+              <em className="italic font-light text-white/70">and institutional</em>
+              <br />
+              <em className="italic font-light text-white/70">excellence</em>
+            </h2>
           </AnimatedContainer>
 
-          {/* Company links */}
-          <AnimatedContainer delay={0.2}>
-            <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-8 text-accent">
-              Company
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-base text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group font-medium cursor-pointer"
-                  >
-                    {link.label}
-                    <ArrowUpRight className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </AnimatedContainer>
+          {/* Right — nav columns */}
+          <div className="lg:w-1/2 grid grid-cols-2 md:grid-cols-3 gap-10 lg:gap-8 lg:pt-2">
 
-          {/* Services links */}
-          <AnimatedContainer delay={0.3}>
-            <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-8 text-accent">
-              Services
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.services.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-base text-slate-400 hover:text-white transition-colors duration-200 flex items-center gap-2 group font-medium cursor-pointer"
-                  >
-                    {link.label}
-                    <ArrowUpRight className="w-4 h-4 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </AnimatedContainer>
+            {/* Company */}
+            <AnimatedContainer delay={0.2}>
+              <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-6">
+                Explore
+              </p>
+              <ul className="space-y-3.5">
+                {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/55 hover:text-white transition-colors duration-200 flex items-center gap-1.5 group cursor-pointer"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedContainer>
 
-          {/* Contact */}
-          <AnimatedContainer delay={0.4}>
-            <h4 className="text-sm font-bold tracking-[0.2em] uppercase mb-8 text-accent">
-              Dubai Office
-            </h4>
-            <ul className="space-y-6">
-              <li className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-accent" />
-                </div>
-                <span className="text-base text-slate-400 leading-relaxed font-medium">
-                  Business Bay, Dubai,<br />United Arab Emirates
-                </span>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-accent" />
-                </div>
-                <a
-                  href="tel:+97100000000"
-                  className="text-base text-slate-400 hover:text-white transition-colors duration-200 font-medium cursor-pointer"
-                >
-                  +971 00 000 0000
-                </a>
-              </li>
-              <li className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-accent" />
-                </div>
-                <a
-                  href="mailto:info@edify.ae"
-                  className="text-base text-slate-400 hover:text-white transition-colors duration-200 font-medium cursor-pointer"
-                >
-                  info@edify.ae
-                </a>
-              </li>
-            </ul>
-          </AnimatedContainer>
+            {/* Services */}
+            <AnimatedContainer delay={0.3}>
+              <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-6">
+                Services
+              </p>
+              <ul className="space-y-3.5">
+                {footerLinks.services.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/55 hover:text-white transition-colors duration-200 flex items-center gap-1.5 group cursor-pointer"
+                    >
+                      {link.label}
+                      <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-200" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedContainer>
+
+            {/* Quick links / Dubai Office */}
+            <AnimatedContainer delay={0.4} className="col-span-2 md:col-span-1">
+              <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-6">
+                Dubai Office
+              </p>
+              <ul className="space-y-3.5">
+                {contactItems.map(({ icon: Icon, href, label }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="text-sm text-white/55 hover:text-white transition-colors duration-200 flex items-start gap-2 group cursor-pointer"
+                    >
+                      <Icon className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-white/30 group-hover:text-[#F97316] transition-colors duration-200" />
+                      <span>{label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedContainer>
+
+          </div>
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="container-edify py-8 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-sm text-slate-500 font-medium">
-            © {new Date().getFullYear()} EDIFY Management Consultancy LLP.
+      {/* ── Oversized brand wordmark — centred, bottom 50% visible ── */}
+      <AnimatedContainer delay={0.15}>
+        <div className="relative select-none border-t border-white/[0.06]">
+          {/*
+            The text is rendered at full height, then the wrapper clips to
+            exactly half that height so only the bottom half of the glyphs show.
+            font-size ≈ clamp(5rem, 20vw, 18rem), line-height = 1 (leading-none)
+            → wrapper height = font-size / 2
+          */}
+          <div
+            className="overflow-hidden w-full"
+            style={{ height: 'clamp(3.75rem, 15vw, 13.5rem)' }}
+          >
+            <div
+              className="text-[clamp(5rem,20vw,18rem)] font-bold leading-none tracking-tighter text-white text-center w-full"
+              aria-hidden="true"
+            >
+              EDIFY
+            </div>
+          </div>
+        </div>
+      </AnimatedContainer>
+
+      {/* ── Bottom bar ── */}
+      <div className="border-t border-white/[0.06]">
+        <div className="container-edify py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-[11px] tracking-[0.15em] uppercase text-white/25 font-medium">
+            © {new Date().getFullYear()} EDIFY Management Consultancy LLP. All rights reserved.
           </p>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-6">
             <Link
               href="#"
-              className="text-sm text-slate-500 hover:text-white transition-colors duration-200 font-medium cursor-pointer"
+              className="text-[11px] tracking-[0.1em] uppercase text-white/25 hover:text-white/60 transition-colors duration-200 font-medium cursor-pointer"
             >
               Privacy Policy
             </Link>
             <Link
               href="#"
-              className="text-sm text-slate-500 hover:text-white transition-colors duration-200 font-medium cursor-pointer"
+              className="text-[11px] tracking-[0.1em] uppercase text-white/25 hover:text-white/60 transition-colors duration-200 font-medium cursor-pointer"
             >
               Terms of Service
             </Link>
           </div>
         </div>
       </div>
+
     </footer>
   );
 }

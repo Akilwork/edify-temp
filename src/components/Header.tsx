@@ -53,7 +53,7 @@ export default function Header() {
   const activeGroup = services.find((s) => s.category === activeCategory) ?? services[0];
 
   return (
-    <header className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 mx-auto px-4">
+    <header className="fixed top-2 left-0 right-0 z-50 transition-all duration-300 mx-auto px-4">
       <div
         className={`container-edify transition-all duration-300 border border-white/20 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] !px-6 md:!px-8 ${
           shouldBeTransparent
@@ -61,7 +61,7 @@ export default function Header() {
             : 'bg-white/80 backdrop-blur-xl'
         }`}
       >
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
             <div
