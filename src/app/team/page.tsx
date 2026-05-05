@@ -19,36 +19,72 @@ const departments = [
 function PageHero() {
   return (
     <section
-      className="pt-48 pb-20 relative overflow-hidden bg-brand-black"
+      className="pt-44 pb-20 relative overflow-hidden"
+      style={{ background: 'var(--brand-black)' }}
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute top-0 right-0 w-1/2 h-full opacity-[0.04]"
-          style={{
-            backgroundImage: `repeating-linear-gradient(45deg, var(--gold-500), var(--gold-500) 1px, transparent 1px, transparent 50px)`,
-          }}
-        />
-      </div>
+      {/* Ambient glow */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(232,98,42,0.07) 0%, transparent 70%)',
+          transform: 'translate(20%, -30%)',
+        }}
+      />
+
+      {/* Subtle grid */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
+      />
+
       <div className="container-edify relative z-10">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="h-px w-10" style={{ background: 'var(--gold-500)' }} />
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: 'var(--gold-400)' }}>
+        <div className="flex items-center gap-3 mb-8">
+          <span className="w-8 h-px" style={{ background: 'var(--accent-primary)' }} />
+          <span
+            className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+            style={{ color: 'var(--accent-primary)' }}
+          >
             The People Behind EDIFY
           </span>
         </div>
-        <h1 className="text-white mb-5 leading-tight">
+
+        <h1
+          className="text-white mb-5 leading-[1.05] max-w-2xl"
+          style={{ fontFamily: "'Syne', sans-serif" }}
+        >
           Our Leadership
         </h1>
-        <p className="text-slate-300 text-lg max-w-2xl leading-relaxed">
-          Experienced professionals driving excellence — combining deep sector knowledge with a passion for transforming educational institutions.
+
+        <p
+          className="text-base max-w-xl leading-relaxed mb-14"
+          style={{ color: 'rgba(255,255,255,0.45)' }}
+        >
+          Experienced professionals driving excellence — combining deep sector knowledge with
+          a passion for transforming educational institutions.
         </p>
 
-        {/* Department summary */}
-        <div className="flex flex-wrap gap-6 mt-12 pt-10 border-t border-white/10">
+        {/* Department stats */}
+        <div
+          className="flex flex-wrap gap-8 pt-10"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
+        >
           {departments.map((dept) => (
-            <div key={dept.label} className="text-center">
-              <div className="text-2xl font-bold text-white">{dept.count}</div>
-              <div className="text-xs text-slate-400 mt-0.5">{dept.label}</div>
+            <div key={dept.label}>
+              <div
+                className="text-2xl font-bold text-white mb-0.5"
+                style={{ fontFamily: "'Syne', sans-serif" }}
+              >
+                {dept.count}
+              </div>
+              <div
+                className="text-xs font-medium tracking-wide"
+                style={{ color: 'rgba(255,255,255,0.35)' }}
+              >
+                {dept.label}
+              </div>
             </div>
           ))}
         </div>
@@ -59,43 +95,62 @@ function PageHero() {
 
 export default function TeamPage() {
   return (
-    <main>
+    <main style={{ background: 'var(--surface-1)' }}>
       <PageHero />
 
       <section className="section-gap">
         <div className="container-edify">
-
           <TeamContent />
 
           {/* Join CTA */}
           <div
-            className="mt-20 rounded-2xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden bg-brand-black"
+            className="mt-16 rounded-3xl p-10 md:p-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden"
+            style={{ background: 'var(--brand-black)' }}
           >
+            {/* Glow */}
+            <div
+              className="absolute bottom-0 right-0 w-64 h-64 rounded-full pointer-events-none"
+              style={{
+                background: 'radial-gradient(circle, rgba(232,98,42,0.08) 0%, transparent 70%)',
+                transform: 'translate(30%, 30%)',
+              }}
+            />
+
             <div className="relative z-10">
-              <p className="text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: 'var(--gold-400)' }}>
-                Careers
-              </p>
-              <h2 className="text-3xl text-white mb-3 leading-tight">
+              <div className="flex items-center gap-3 mb-5">
+                <span className="w-6 h-px" style={{ background: 'var(--accent-primary)' }} />
+                <span
+                  className="text-[10px] font-semibold tracking-[0.25em] uppercase"
+                  style={{ color: 'var(--accent-primary)' }}
+                >
+                  Careers
+                </span>
+              </div>
+              <h2
+                className="text-2xl md:text-3xl text-white mb-3 leading-tight"
+                style={{ fontFamily: "'Syne', sans-serif" }}
+              >
                 Join a team that shapes education
               </h2>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                We are always looking for passionate professionals in education, technology, HR, and operations to join the EDIFY family.
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'rgba(255,255,255,0.4)' }}
+              >
+                We are always looking for passionate professionals in education, technology,
+                HR, and operations to join the EDIFY family.
               </p>
             </div>
+
             <div className="relative z-10 flex md:justify-end">
               <a
                 href="mailto:careers@edify.ae"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold transition-all hover:scale-105"
-                style={{ background: 'var(--gold-500)', color: 'white' }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+                style={{ background: 'var(--accent-primary)' }}
               >
                 <Mail className="w-4 h-4" />
                 careers@edify.ae
               </a>
             </div>
-            <div
-              className="absolute -bottom-10 -right-10 w-64 h-64 rounded-full opacity-10"
-              style={{ background: 'var(--gold-500)' }}
-            />
           </div>
         </div>
       </section>

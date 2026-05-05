@@ -6,75 +6,134 @@ import { aboutFeatures } from '@/constants';
 import StatsSection from '@/components/StatsSection';
 import { FadeIn, ScaleIn } from '@/components/ui/animations';
 import FeatureSections from '@/components/feature-sections';
-import HeroSection from '@/components/HeroSection';
 import ParallelEvolutionSection from '@/components/ParallelEvolutionSection';
-import BackgroundWatermark from '@/components/BackgroundWatermark';
 import AffiliatedLogos from '@/components/AffiliatedLogos';
 import TurnoverSection from '@/components/TurnoverSection';
-import ZoomParallaxSection from '@/components/ZoomParallaxSection';
 import GlobalPresenceSection from '@/components/GlobalPresenceSection';
 import CinematicScrollSection from '@/components/CinematicScrollSection';
 
 function AboutSection() {
   return (
-    <section id="about" className="section-gap bg-slate-50 overflow-hidden">
+    <section
+      id="about"
+      className="section-gap relative overflow-hidden"
+      style={{ background: 'var(--surface-0)' }}
+    >
       <div className="container-edify">
         <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-          
-          {/* Left: Image & Floating Badge */}
+
+          {/* Left: Image */}
           <ScaleIn className="lg:w-1/2">
-            <div className="relative shadow-2xl shadow-black/5 rounded-[3rem] overflow-hidden group">
-              <img 
-                className="w-full h-auto object-cover rounded-[3rem] transition-transform duration-700 group-hover:scale-105"
+            <div className="relative rounded-3xl overflow-hidden group shadow-2xl shadow-black/8">
+              <img
+                className="w-full h-auto object-cover rounded-3xl transition-transform duration-700 group-hover:scale-[1.03]"
                 src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000&auto=format&fit=crop"
-                alt="Education Management" 
+                alt="Education Management"
               />
-              <div className="flex items-center gap-4 max-w-sm absolute bottom-8 left-8 bg-white/90 backdrop-blur-md p-6 rounded-[2rem] shadow-xl border border-white/50">
-                <div className="flex -space-x-4 shrink-0">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Executive" className="w-12 h-12 rounded-full border-[3px] border-white z-1" />
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" alt="Consultant" className="w-12 h-12 rounded-full border-[3px] border-white z-[2]" />
-                  <div className="flex items-center justify-center text-sm font-bold text-white w-12 h-12 rounded-full border-[3px] border-white bg-brand-black z-[3]">
+              {/* Floating badge */}
+              <div
+                className="absolute bottom-6 left-6 flex items-center gap-4 px-5 py-4 rounded-2xl backdrop-blur-md shadow-xl"
+                style={{
+                  background: 'rgba(255,255,255,0.92)',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                }}
+              >
+                <div className="flex -space-x-3 shrink-0">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200" alt="Executive" className="w-10 h-10 rounded-full border-2 border-white z-[1]" />
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200" alt="Consultant" className="w-10 h-10 rounded-full border-2 border-white z-[2]" />
+                  <div
+                    className="flex items-center justify-center text-xs font-bold text-white w-10 h-10 rounded-full border-2 border-white z-[3]"
+                    style={{ background: 'var(--brand-black)' }}
+                  >
                     50+
                   </div>
                 </div>
-                <div className="pr-4">
-                  <p className="text-sm font-bold text-brand-black leading-tight">Trusted by institutions</p>
-                  <p className="text-xs text-slate-500 mt-1">Across the UAE</p>
+                <div>
+                  <p className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>
+                    Trusted by institutions
+                  </p>
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                    Across the UAE
+                  </p>
                 </div>
               </div>
             </div>
           </ScaleIn>
 
-          {/* Right: Text Content */}
+          {/* Right: Text */}
           <FadeIn className="lg:w-1/2">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-sm uppercase tracking-[0.2em] font-bold text-accent">Our Mission</span>
-              <div className="h-px w-12 bg-slate-200" />
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px" style={{ background: 'var(--accent-primary)' }} />
+              <span
+                className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+                style={{ color: 'var(--accent-primary)' }}
+              >
+                Our Mission
+              </span>
             </div>
-            
-            <h2 className="leading-[1.1]">
-              Strategic Excellence for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-black to-slate-950">Modern Institutions</span>
+
+            <h2
+              className="mb-8 leading-[1.05]"
+              style={{ color: 'var(--text-primary)', fontFamily: "'Syne', sans-serif" }}
+            >
+              Strategic Excellence for{' '}
+              <span style={{ color: 'var(--text-muted)' }}>
+                Modern Institutions
+              </span>
             </h2>
-            
-            <div className="w-24 h-1.5 rounded-full bg-accent my-10"></div>
-            
-            <div className="space-y-6">
-              <p className="text-xl text-slate-700 leading-relaxed font-medium">
-                Incorporated in <strong className="text-brand-black">2018</strong>, EDIFY Management Consultancy LLP is a premier education management firm under the umbrella of the <strong className="text-brand-black">MHUDA Trust</strong>.
+
+            <div
+              className="w-10 h-0.5 rounded-full mb-8"
+              style={{ background: 'var(--accent-primary)' }}
+            />
+
+            <div className="space-y-5 mb-10">
+              <p
+                className="text-lg leading-relaxed font-medium"
+                style={{ color: 'var(--text-secondary)' }}
+              >
+                Incorporated in{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>2018</strong>,
+                EDIFY Management Consultancy LLP is a premier education management firm under
+                the umbrella of the{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>MHUDA Trust</strong>.
               </p>
-              <p className="text-lg text-slate-500 leading-relaxed">
-                We bridge the gap between academic vision and operational reality. Our multidisciplinary approach provides institutions with a single, trusted partner for everything from academic governance and HR to digital innovation and facilities management.
+              <p
+                className="text-base leading-relaxed"
+                style={{ color: 'var(--text-muted)' }}
+              >
+                We bridge the gap between academic vision and operational reality. Our
+                multidisciplinary approach provides institutions with a single, trusted partner
+                for everything from academic governance and HR to digital innovation and
+                facilities management.
               </p>
             </div>
 
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {aboutFeatures.map((item) => (
-                <div key={item} className="flex items-center gap-3 group">
-                  <div className="w-6 h-6 rounded-full bg-orange-50 flex items-center justify-center group-hover:bg-accent transition-colors duration-300">
-                    <CheckCircle2 className="w-4 h-4 text-accent group-hover:text-white transition-colors" />
+                <div
+                  key={item}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl group cursor-default transition-all duration-200"
+                  style={{
+                    background: 'var(--surface-1)',
+                    border: '1px solid var(--border-light)',
+                  }}
+                >
+                  <div
+                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200"
+                    style={{ background: 'rgba(232,98,42,0.1)' }}
+                  >
+                    <CheckCircle2
+                      className="w-3.5 h-3.5"
+                      style={{ color: 'var(--accent-primary)' }}
+                    />
                   </div>
-                  <span className="text-base font-semibold text-slate-700">{item}</span>
+                  <span
+                    className="text-sm font-semibold"
+                    style={{ color: 'var(--text-secondary)' }}
+                  >
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
@@ -85,46 +144,71 @@ function AboutSection() {
   );
 }
 
-
-
-// ─── CTA Banner ────────────────────────────────────────────────────────────────
 function CTABanner() {
   return (
     <section
-      className="relative py-32 overflow-hidden bg-brand-black"
+      className="relative overflow-hidden"
+      style={{ background: 'var(--brand-black)' }}
     >
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div
-          className="absolute -top-20 -right-20 w-[500px] h-[500px] rounded-full blur-[100px]"
-          style={{ background: 'var(--accent-orange)' }}
-        />
-        <div
-          className="absolute -bottom-10 -left-10 w-[400px] h-[400px] rounded-full blur-[80px]"
-          style={{ background: 'var(--accent-blue)' }}
-        />
-      </div>
+      {/* Ambient glows */}
+      <div
+        className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(232,98,42,0.07) 0%, transparent 70%)',
+          transform: 'translate(20%, -20%)',
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)',
+          transform: 'translate(-30%, 30%)',
+        }}
+      />
 
-      <FadeIn className="container-edify relative z-10 text-center" y={40}>
-        <p className="text-sm font-bold tracking-[0.2em] uppercase mb-6 text-accent">
-          Let's Collaborate
-        </p>
-        <h2 className="text-white mb-10 max-w-4xl mx-auto leading-tight">
-          Partner with us for <br /> educational excellence
+      <FadeIn className="container-edify relative z-10 py-28 md:py-36 text-center" y={30}>
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <span className="w-8 h-px" style={{ background: 'var(--accent-primary)' }} />
+          <span
+            className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+            style={{ color: 'var(--accent-primary)' }}
+          >
+            Let's Collaborate
+          </span>
+          <span className="w-8 h-px" style={{ background: 'var(--accent-primary)' }} />
+        </div>
+
+        <h2
+          className="text-white mb-6 max-w-3xl mx-auto leading-[1.05]"
+          style={{ fontFamily: "'Syne', sans-serif" }}
+        >
+          Partner with us for{' '}
+          <span style={{ color: 'rgba(255,255,255,0.3)' }}>
+            educational excellence
+          </span>
         </h2>
-        <p className="text-slate-400 text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-          Whether you're looking to transform a school, scale an institution, or build a world-class education ecosystem — we're the partner you need.
+
+        <p
+          className="text-lg mb-12 max-w-2xl mx-auto leading-relaxed"
+          style={{ color: 'rgba(255,255,255,0.4)' }}
+        >
+          Whether you're looking to transform a school, scale an institution, or build a
+          world-class education ecosystem — we're the partner you need.
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
+
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-10 py-5 rounded-full text-lg font-bold transition-all hover:scale-105 bg-accent text-white"
+            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+            style={{ background: 'var(--accent-primary)' }}
           >
             Get in Touch
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-full text-lg font-bold text-white border-2 border-white/10 hover:bg-white/5 transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
+            style={{ border: '1px solid rgba(255,255,255,0.12)' }}
           >
             View Services
           </Link>
@@ -137,8 +221,6 @@ function CTABanner() {
 export default function HomePage() {
   return (
     <main className="relative">
-      {/* <BackgroundWatermark /> */}
-      {/* <HeroSection /> */}
       <CinematicScrollSection />
       <AffiliatedLogos />
       <AboutSection />
@@ -147,8 +229,6 @@ export default function HomePage() {
       <ParallelEvolutionSection />
       <StatsSection />
       <FeatureSections />
-      {/* <ScrollTextAnimation /> */}
-      {/* <ZoomParallaxSection /> */}
       <CTABanner />
     </main>
   );

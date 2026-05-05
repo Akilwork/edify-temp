@@ -89,7 +89,7 @@ function AnimatedContainer({ className, delay = 0.1, children }: AnimatedContain
 
 export default function Footer() {
   return (
-    <footer className="bg-[#000000] text-white overflow-hidden">
+    <footer className="text-white overflow-hidden" style={{ background: 'var(--brand-black)' }}>
 
       {/* ── Top section: tagline left + nav columns right ── */}
       <div className="container-edify pt-20 pb-16">
@@ -107,11 +107,11 @@ export default function Footer() {
             </div>
 
             {/* Editorial tagline */}
-            <h2 className="text-4xl md:text-5xl font-light leading-[1.15] tracking-tight text-white">
+            <h2 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight text-white" style={{ fontFamily: "'Syne', sans-serif" }}>
               Empowering education{' '}
-              <em className="italic font-light text-white/70">and institutional</em>
+              <span className="font-normal text-white/50">and institutional</span>
               <br />
-              <em className="italic font-light text-white/70">excellence</em>
+              <span className="font-normal text-white/50">excellence</span>
             </h2>
           </AnimatedContainer>
 
@@ -170,7 +170,7 @@ export default function Footer() {
                       href={href}
                       className="text-sm text-white/55 hover:text-white transition-colors duration-200 flex items-start gap-2 group cursor-pointer"
                     >
-                      <Icon className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-white/30 group-hover:text-[#F97316] transition-colors duration-200" />
+                      <Icon className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-white/30 group-hover:text-[var(--accent-primary)] transition-colors duration-200" />
                       <span>{label}</span>
                     </a>
                   </li>

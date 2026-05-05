@@ -25,38 +25,91 @@ const GLOBE_MARKERS: PulseMarker[] = presenceLocations.map((loc, i) => ({
   label:    loc.name,
 }));
 
+const regions = [
+  { label: 'UAE', count: '4 Emirates', dot: '#E8622A' },
+  { label: 'South Asia', count: 'India', dot: '#C9A84C' },
+  { label: 'Europe', count: 'UK', dot: '#6366F1' },
+  { label: 'APAC', count: 'Singapore · Australia', dot: '#22C55E' },
+];
+
 export default function GlobalPresenceSection() {
   return (
-    <section id="presence" className="py-8 md:py-12 lg:py-16 relative bg-white overflow-hidden">
-      <div className="container-edify">
+    <section
+      id="presence"
+      className="relative overflow-hidden"
+      style={{ background: 'var(--surface-1)' }}
+    >
+      {/* Top border */}
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'var(--border-light)' }} />
 
-        {/* ── Header ─────────────────────────────────────────────── */}
-        <FadeIn className="text-center mb-8 lg:mb-12">
-          <div className="inline-flex items-center gap-3 mb-6">
-            <div className="h-px w-12 bg-slate-200" />
-            <span className="text-sm uppercase tracking-[0.2em] font-bold text-accent">
-              Global Footprint
-            </span>
-            <div className="h-px w-12 bg-slate-200" />
-          </div>
-          <h2 className="leading-[1.1] mb-6">
-            Scale and Impact <br />
-            <span className="text-black to-slate-400">
-              Across the Globe
-            </span>
-          </h2>
-          <p className="text-xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            From our strategic hubs in the UAE to a growing international presence, we are committed to elevating educational standards worldwide.
-          </p>
-        </FadeIn>
+      <div className="container-edify py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-        {/* ── Globe ──────────────────────────────────────────────── */}
-        <FadeIn>
-          <div className="mx-auto w-full max-w-[700px]">
-            <GlobePulse markers={GLOBE_MARKERS} speed={0.003} />
-          </div>
-        </FadeIn>
+          {/* ── Left: Text ── */}
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-8 h-px" style={{ background: 'var(--accent-primary)' }} />
+              <span
+                className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+                style={{ color: 'var(--accent-primary)' }}
+              >
+                Global Footprint
+              </span>
+            </div>
 
+            <h2
+              className="mb-6 leading-[1.05]"
+              style={{ color: 'var(--text-primary)', fontFamily: "'Syne', sans-serif" }}
+            >
+              Scale and Impact{' '}
+              <span style={{ color: 'var(--text-muted)' }}>
+                Across the Globe
+              </span>
+            </h2>
+
+            <p
+              className="text-base leading-relaxed mb-12 max-w-lg"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              From our strategic hubs in the UAE to a growing international presence, we are
+              committed to elevating educational standards worldwide.
+            </p>
+
+            {/* Region pills */}
+            <div className="grid grid-cols-2 gap-3">
+              {regions.map((r) => (
+                <div
+                  key={r.label}
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 cursor-default"
+                  style={{
+                    background: 'var(--surface-0)',
+                    border: '1px solid var(--border-light)',
+                  }}
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ background: r.dot }}
+                  />
+                  <div>
+                    <p className="text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
+                      {r.label}
+                    </p>
+                    <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>
+                      {r.count}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+
+          {/* ── Right: Globe ── */}
+          <FadeIn>
+            <div className="mx-auto w-full max-w-[560px]">
+              <GlobePulse markers={GLOBE_MARKERS} speed={0.003} />
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
   );

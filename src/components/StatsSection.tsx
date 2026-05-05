@@ -10,9 +10,10 @@ interface StatProps {
   label: string;
   description: string;
   isDynamic?: boolean;
+  index: number;
 }
 
-function StatItem({ end, suffix = '', prefix = '', label, description, isDynamic }: StatProps) {
+function StatItem({ end, suffix = '', prefix = '', label, description, isDynamic, index }: StatProps) {
   const [count, setCount] = useState(0);
   const [latestVisitor, setLatestVisitor] = useState<string>('Dubai, UAE');
   const ref = useRef<HTMLDivElement>(null);
@@ -21,7 +22,6 @@ function StatItem({ end, suffix = '', prefix = '', label, description, isDynamic
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !observed.current) {
@@ -43,29 +43,68 @@ function StatItem({ end, suffix = '', prefix = '', label, description, isDynamic
     return () => observer.disconnect();
   }, [end]);
 
-  // Real-time visitor update simulation
   useEffect(() => {
     if (isDynamic) {
       const interval = setInterval(() => {
         setCount(prev => prev + Math.floor(Math.random() * 3));
         const locations = ['Dubai', 'Abu Dhabi', 'Sharjah', 'London', 'Singapore', 'Mumbai', 'New York'];
-        setLatestVisitor(`${locations[Math.floor(Math.random() * locations.length)]}, ${locations[Math.floor(Math.random() * locations.length)] === 'London' ? 'UK' : 'UAE'}`);
+        setLatestVisitor(`${locations[Math.floor(Math.random() * locations.length)]}`);
       }, 5000);
       return () => clearInterval(interval);
     }
   }, [isDynamic]);
 
+  const isEven = index % 2 === 0;
+
   return (
-    <div ref={ref} className="text-left group border-l-2 md:border-l-0 md:border-t-2 lg:border-t-0 lg:border-l-2 border-slate-100 pl-8 md:pl-0 md:pt-8 lg:pt-0 lg:pl-8 transition-all duration-500 hover:border-brand-black">
-      <div className="text-4xl md:text-5xl font-extrabold mb-1 tracking-tight text-brand-black transition-all duration-300 group-hover:scale-105">
+    <div
+      ref={ref}
+      className="group relative p-8 rounded-2xl transition-all duration-500 cursor-default"
+      style={{
+        background: isEven ? 'var(--surface-1)' : 'var(--surface-0)',
+        border: '1px solid var(--border-light)',
+      }}
+    >
+      {/* Hover accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: 'var(--accent-primary)' }}
+      />
+
+      <div
+        className="text-4xl md:text-5xl font-bold mb-2 tracking-tight transition-all duration-300"
+        style={{
+          fontFamily: "'Syne', sans-serif",
+          color: 'var(--text-primary)',
+        }}
+      >
         {prefix}{count.toLocaleString()}{suffix}
       </div>
-      <div className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">{label}</div>
-      <div className="text-xs text-slate-500 font-medium">{description}</div>
+
+      <div
+        className="text-xs font-bold uppercase tracking-[0.18em] mb-1.5"
+        style={{ color: 'var(--accent-primary)' }}
+      >
+        {label}
+      </div>
+
+      <div
+        className="text-sm"
+        style={{ color: 'var(--text-muted)' }}
+      >
+        {description}
+      </div>
+
       {isDynamic && (
-        <div className="mt-4 flex items-center gap-2 text-[10px] font-bold text-accent uppercase tracking-tighter animate-pulse">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-          Latest visitor from: {latestVisitor}
+        <div
+          className="mt-4 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-wider"
+          style={{ color: 'var(--accent-primary)' }}
+        >
+          <span
+            className="w-1.5 h-1.5 rounded-full animate-pulse"
+            style={{ background: 'var(--accent-primary)' }}
+          />
+          Live · {latestVisitor}
         </div>
       )}
     </div>
@@ -74,11 +113,25 @@ function StatItem({ end, suffix = '', prefix = '', label, description, isDynamic
 
 export default function StatsSection() {
   return (
-    <section className="section-gap bg-white">
+    <section className="section-gap" style={{ background: 'var(--surface-0)' }}>
       <div className="container-edify">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8">
-          {stats.map((s) => (
-            <StatItem key={s.label} {...s} />
+        {/* Header */}
+        <div className="flex items-center gap-3 mb-12">
+          <span
+            className="w-8 h-px"
+            style={{ background: 'var(--accent-primary)' }}
+          />
+          <span
+            className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+            style={{ color: 'var(--accent-primary)' }}
+          >
+            By the Numbers
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {stats.map((s, i) => (
+            <StatItem key={s.label} {...s} index={i} />
           ))}
         </div>
       </div>

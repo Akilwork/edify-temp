@@ -3,77 +3,193 @@
 import React from 'react';
 import { turnoverData } from '@/constants';
 import { FadeIn, ScaleIn } from './ui/animations';
-import { TrendingUp, CheckCircle2 } from 'lucide-react';
+import { TrendingUp, ArrowUpRight } from 'lucide-react';
 
-/**
- * TurnoverSection - Redesigned to align with the "Enter" (Minimalist Inter) Design System.
- * Focuses on high contrast, crisp typography (Inter), and structured spacing.
- */
 export default function TurnoverSection() {
   return (
-    <section className="py-24 md:py-32 bg-black text-white relative overflow-hidden font-sans">
-      {/* Subtle minimalist grid background */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+    <section className="relative overflow-hidden bg-[#0A0A0A]">
+      {/* Warm ambient glow */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(232,98,42,0.08) 0%, transparent 70%)',
+          transform: 'translate(20%, -20%)',
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)',
+          transform: 'translate(-30%, 30%)',
+        }}
+      />
 
-      <div className="container-edify relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
-          {/* Left Column: Narrative */}
-          <FadeIn className="lg:w-1/2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.2em] font-bold text-white/50 mb-8">
-              <TrendingUp className="w-3 h-3" />
-              Financial Performance
+      <div className="container-edify relative z-10 py-24 md:py-36">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+          {/* ── Left: Narrative ── */}
+          <FadeIn>
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3 mb-10">
+              <span
+                className="w-8 h-px"
+                style={{ background: 'var(--accent-primary)' }}
+              />
+              <span
+                className="text-[11px] font-semibold tracking-[0.25em] uppercase"
+                style={{ color: 'var(--accent-primary)' }}
+              >
+                Financial Performance
+              </span>
             </div>
-            
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-10 leading-[1.05] tracking-tight text-white">
-              Driving Sustained <br />
-              <span className="text-white/40">Economic Growth</span>
+
+            {/* Headline */}
+            <h2
+              className="text-white mb-8 leading-[1.05]"
+              style={{ fontFamily: "'Syne', sans-serif" }}
+            >
+              Driving Sustained{' '}
+              <span style={{ color: 'rgba(255,255,255,0.25)' }}>
+                Economic Growth
+              </span>
             </h2>
-            
-            <p className="text-xl text-white/50 mb-12 leading-relaxed max-w-xl">
-              Our financial trajectory reflects our commitment to excellence and the trust our partners place in us. We maintain a robust fiscal foundation to fuel innovation and expansion.
+
+            {/* Body */}
+            <p className="text-base leading-relaxed mb-12" style={{ color: 'rgba(255,255,255,0.45)' }}>
+              Our financial trajectory reflects our commitment to excellence and the trust our
+              partners place in us. We maintain a robust fiscal foundation to fuel innovation
+              and expansion.
             </p>
 
-            <div className="space-y-8">
-              {turnoverData.highlights.map((highlight, index) => (
-                <div key={index} className="flex items-start gap-5 group">
-                  <div className="mt-1.5 shrink-0 w-5 h-5 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white/50 transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white" />
+            {/* Highlights */}
+            <div className="space-y-5">
+              {turnoverData.highlights.map((highlight, i) => (
+                <div key={i} className="flex items-start gap-4 group cursor-default">
+                  <div
+                    className="mt-1.5 shrink-0 w-4 h-4 rounded-full flex items-center justify-center transition-colors duration-300"
+                    style={{ border: '1px solid rgba(255,255,255,0.15)' }}
+                  >
+                    <div
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ background: 'var(--accent-primary)' }}
+                    />
                   </div>
-                  <p className="text-lg text-white/70 group-hover:text-white transition-colors">{highlight}</p>
+                  <p
+                    className="text-sm leading-relaxed transition-colors duration-300 group-hover:text-white"
+                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                  >
+                    {highlight}
+                  </p>
                 </div>
               ))}
             </div>
           </FadeIn>
 
-          {/* Right Column: Key Metric Card */}
-          <ScaleIn className="lg:w-1/2 w-full">
-            <div className="relative group">
-              {/* Subtle outer glow on hover */}
-              <div className="absolute -inset-4 bg-white/5 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              
-              <div className="relative bg-neutral-900 border border-white/10 rounded-[2.5rem] p-12 lg:p-20 text-center shadow-2xl">
-                <p className="text-xs font-bold tracking-[0.4em] uppercase text-white/30 mb-6">Overall Turnover</p>
-                
-                <div className="text-7xl md:text-8xl lg:text-9xl font-bold text-white mb-8 tracking-tighter">
-                  {turnoverData.total}
-                </div>
-                
-                <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full bg-white text-black font-bold text-sm shadow-xl hover:scale-105 transition-transform">
-                  <TrendingUp className="w-4 h-4" />
-                  {turnoverData.growth} Annual Growth
-                </div>
-                
-                <div className="mt-16 grid grid-cols-2 gap-12 pt-16 border-t border-white/5">
-                  <div className="text-left">
-                    <p className="text-4xl font-bold text-white mb-2">10+</p>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">Business Verticals</p>
+          {/* ── Right: Metric Card ── */}
+          <ScaleIn>
+            <div className="relative">
+              {/* Card */}
+              <div
+                className="relative rounded-3xl overflow-hidden"
+                style={{
+                  background: 'linear-gradient(145deg, #1A1A1A 0%, #141414 100%)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                }}
+              >
+                {/* Top accent line */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-px"
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(232,98,42,0.6), transparent)',
+                  }}
+                />
+
+                <div className="p-10 lg:p-14">
+                  {/* Label */}
+                  <p
+                    className="text-[10px] font-bold tracking-[0.35em] uppercase mb-8"
+                    style={{ color: 'rgba(255,255,255,0.25)' }}
+                  >
+                    Overall Turnover
+                  </p>
+
+                  {/* Big number */}
+                  <div
+                    className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 tracking-tight leading-none"
+                    style={{ fontFamily: "'Syne', sans-serif" }}
+                  >
+                    {turnoverData.total}
                   </div>
-                  <div className="text-left">
-                    <p className="text-4xl font-bold text-white mb-2">5+</p>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">Global Markets</p>
+
+                  {/* Growth badge */}
+                  <div
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold mb-12"
+                    style={{
+                      background: 'rgba(232,98,42,0.12)',
+                      border: '1px solid rgba(232,98,42,0.25)',
+                      color: 'var(--accent-primary)',
+                    }}
+                  >
+                    <TrendingUp className="w-4 h-4" />
+                    {turnoverData.growth} Annual Growth
+                  </div>
+
+                  {/* Divider */}
+                  <div
+                    className="w-full h-px mb-10"
+                    style={{ background: 'rgba(255,255,255,0.05)' }}
+                  />
+
+                  {/* Stats row */}
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <p
+                        className="text-4xl font-bold text-white mb-1.5 leading-none"
+                        style={{ fontFamily: "'Syne', sans-serif" }}
+                      >
+                        10+
+                      </p>
+                      <p
+                        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
+                        style={{ color: 'rgba(255,255,255,0.25)' }}
+                      >
+                        Business Verticals
+                      </p>
+                    </div>
+                    <div>
+                      <p
+                        className="text-4xl font-bold text-white mb-1.5 leading-none"
+                        style={{ fontFamily: "'Syne', sans-serif" }}
+                      >
+                        5+
+                      </p>
+                      <p
+                        className="text-[10px] font-semibold tracking-[0.2em] uppercase"
+                        style={{ color: 'rgba(255,255,255,0.25)' }}
+                      >
+                        Global Markets
+                      </p>
+                    </div>
                   </div>
                 </div>
+
+                {/* Bottom corner accent */}
+                <div
+                  className="absolute bottom-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(circle, rgba(232,98,42,0.06) 0%, transparent 70%)',
+                    transform: 'translate(30%, 30%)',
+                  }}
+                />
+              </div>
+
+              {/* Floating badge */}
+              <div
+                className="absolute -top-4 -right-4 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold text-white shadow-xl"
+                style={{ background: 'var(--accent-primary)' }}
+              >
+                <ArrowUpRight className="w-3.5 h-3.5" />
+                Since 2018
               </div>
             </div>
           </ScaleIn>
