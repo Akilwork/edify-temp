@@ -12,12 +12,15 @@ export default function HeroSection() {
         {/* ── Video Background ── */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4"
+          src="/assets/hero/Untitled design.mp4"
           autoPlay
           loop
           muted
           playsInline
         />
+
+        {/* ── Dark Gradient Overlay for text readability ── */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 pointer-events-none" />
 
         {/* ── Spacing for Global Header ── */}
         <div className="h-24 md:h-32" />
@@ -29,23 +32,23 @@ export default function HeroSection() {
             {/* Left Column */}
             <div>
               <FadeIn delay={400}>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  <span className="text-sm font-bold tracking-[0.2em] uppercase text-white/80">Est. 2018 | MHUDA Trust</span>
+                  <span className="text-sm font-bold tracking-[0.2em] uppercase text-white/90">Est. 2018 | MHUDA Trust</span>
                 </div>
               </FadeIn>
 
               <TextAnimation
-                text="Shaping tomorrow\nwith vision and action."
+                text={"Powering Institutions.\nEnabling Growth. Scaling Impact."}
                 lineAnime={true}
-                classname="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal text-white mb-4"
+                classname="text-4xl md:text-5xl lg:text-4xl xl:text-5xl font-bold text-white mb-6 drop-shadow-lg"
                 delay={0.2}
               />
 
               <TextAnimation
                 as="p"
-                text="We back visionaries and craft ventures that define what comes next."
-                classname="text-base md:text-lg text-gray-300 mb-5"
+                text="Edify Management Consultancy LLC is a multi-disciplinary ecosystem enabling educational institutions and businesses across the UAE through integrated services, operational excellence, and forward-thinking innovation."
+                classname="text-base md:text-lg text-white/80 mb-8 max-w-xl leading-relaxed drop-shadow"
                 delay={0.8}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
@@ -61,13 +64,13 @@ export default function HeroSection() {
                 <div className="flex flex-wrap gap-4">
                   <Link
                     href="/contact"
-                    className="bg-white text-black px-8 py-3 rounded-lg font-medium cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+                    className="bg-white text-black px-8 py-3 rounded-lg font-semibold cursor-pointer hover:bg-gray-100 transition-colors duration-200 shadow-lg"
                   >
                     Start a Chat
                   </Link>
                   <Link
                     href="#"
-                    className="liquid-glass border border-white/20 text-white px-8 py-3 rounded-lg font-medium cursor-pointer hover:bg-white hover:text-black transition-all duration-200"
+                    className="liquid-glass border border-white/30 text-white px-8 py-3 rounded-lg font-semibold cursor-pointer hover:bg-white hover:text-black transition-all duration-200"
                   >
                     Explore Now
                   </Link>
