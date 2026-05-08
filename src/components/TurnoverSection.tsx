@@ -25,9 +25,9 @@ export default function TurnoverSection() {
               Financial Performance
             </div>
             
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-10 leading-[1.05] tracking-tight text-white">
+            <h2 className="text-5xl md:text-5xl lg:text-6xl font-bold mb-10 leading-[1.05] tracking-tight text-white">
               Driving Sustained <br />
-              <span className="text-white/40">Economic Growth</span>
+              <span className="text-white/30">Economic Growth</span>
             </h2>
             
             <p className="text-xl text-white/50 mb-12 leading-relaxed max-w-xl">
