@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const scenes = [
   {
     id: 'sunrise',
-    bg: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 1.jpg',
     overlay: 'from-black/70 via-black/30 to-transparent',
     label: 'Est. 2018',
     headline: 'Built on Trust.',
@@ -21,7 +21,7 @@ const scenes = [
   },
   {
     id: 'corporate',
-    bg: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 2.jpg',
     overlay: 'from-black/80 via-black/40 to-black/10',
     label: 'Our Environment',
     headline: 'Where Vision',
@@ -31,7 +31,7 @@ const scenes = [
   },
   {
     id: 'uae-map',
-    bg: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 3.jpg',
     overlay: 'from-slate-950/90 via-slate-950/50 to-transparent',
     label: 'UAE Presence',
     headline: 'Expanding',
@@ -41,7 +41,7 @@ const scenes = [
   },
   {
     id: 'services',
-    bg: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 4.jpg',
     overlay: 'from-black/85 via-black/40 to-transparent',
     label: 'Our Services',
     headline: 'Complete Solutions',
@@ -51,7 +51,7 @@ const scenes = [
   },
   {
     id: 'leadership',
-    bg: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 5.jpg',
     overlay: 'from-black/80 via-black/35 to-transparent',
     label: 'Leadership',
     headline: 'People Who',
@@ -61,12 +61,52 @@ const scenes = [
   },
   {
     id: 'results',
-    bg: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1920&auto=format&fit=crop',
+    bg: '/assets/Edify images/Frame 6.jpg',
     overlay: 'from-black/75 via-black/30 to-transparent',
     label: 'Impact',
     headline: 'Measurable Results.',
     sub: 'Lasting Legacy.',
     accent: '#6366F1',
+    parallaxY: -55,
+  },
+  {
+    id: 'innovation',
+    bg: '/assets/Edify images/Frame 7.jpg',
+    overlay: 'from-black/80 via-black/35 to-transparent',
+    label: 'Innovation',
+    headline: 'Future-Ready',
+    sub: 'Learning Spaces.',
+    accent: '#F97316',
+    parallaxY: -60,
+  },
+  {
+    id: 'excellence',
+    bg: '/assets/Edify images/Frame 8.jpg',
+    overlay: 'from-black/80 via-black/35 to-transparent',
+    label: 'Excellence',
+    headline: 'Academic',
+    sub: 'Excellence.',
+    accent: '#6366F1',
+    parallaxY: -70,
+  },
+  {
+    id: 'digital',
+    bg: '/assets/Edify images/Frame 9.jpg',
+    overlay: 'from-black/80 via-black/35 to-transparent',
+    label: 'Digital',
+    headline: 'Smart',
+    sub: 'Technology.',
+    accent: '#F97316',
+    parallaxY: -50,
+  },
+  {
+    id: 'partnership',
+    bg: '/assets/Edify images/Frame 11.jpg',
+    overlay: 'from-black/80 via-black/35 to-transparent',
+    label: 'Partnership',
+    headline: 'Growing',
+    sub: 'The Future.',
+    accent: '#F97316',
     parallaxY: -55,
   },
 ];
@@ -123,7 +163,7 @@ export default function CinematicScrollSection() {
         scrollTrigger: {
           trigger: wrapperRef.current,
           start: 'top top',
-          end: `+=${totalScenes * 100}%`,
+          end: 'bottom bottom',
           scrub: 1.2,
           pin: stickyRef.current,
           anticipatePin: 1,
@@ -159,12 +199,23 @@ export default function CinematicScrollSection() {
           start
         );
 
-        // Parallax bg
+        // Parallax, Pan and Zoom effect
         if (bg) {
+          const isEven = i % 2 === 0;
           masterTl.fromTo(
             bg,
-            { y: 0 },
-            { y: scenes[i].parallaxY, ease: 'none', duration: segmentDuration },
+            { 
+              yPercent: 0, 
+              xPercent: isEven ? -4 : 4,
+              scale: 1.1 
+            },
+            { 
+              yPercent: 10, 
+              xPercent: isEven ? 4 : -4,
+              scale: 1,
+              ease: 'none', 
+              duration: segmentDuration 
+            },
             start
           );
         }
@@ -221,7 +272,7 @@ export default function CinematicScrollSection() {
     <section
       ref={wrapperRef}
       className="relative"
-      style={{ height: `${(scenes.length + 1) * 100}vh` }}
+      style={{ height: `${scenes.length * 120}vh` }}
       aria-label="Cinematic story scroll"
     >
       {/* ── Sticky viewport ── */}
@@ -249,8 +300,13 @@ export default function CinematicScrollSection() {
             {/* Parallax background */}
             <div
               ref={(el) => { bgRefs.current[i] = el; }}
-              className="absolute inset-0 w-full will-change-transform bg-slate-800"
-              style={{ height: '130%', top: '-15%' }}
+              className="absolute inset-0 will-change-transform bg-slate-800"
+              style={{ 
+                height: '130%', 
+                width: '115%',
+                top: '-15%', 
+                left: '-7.5%'
+              }}
             >
               <img
                 src={scene.bg}
@@ -269,20 +325,7 @@ export default function CinematicScrollSection() {
             <div className="absolute top-0 left-0 right-0 h-[6vh] bg-gradient-to-b from-black/40 to-transparent z-10" />
             <div className="absolute bottom-0 left-0 right-0 h-[6vh] bg-gradient-to-t from-black/40 to-transparent z-10" />
 
-            {/* Scene index indicator */}
-            <div className="absolute top-[6vh] right-8 z-20 flex items-center gap-2 pt-4">
-              {scenes.map((_, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-full transition-all duration-300"
-                  style={{
-                    width: idx === i ? '24px' : '6px',
-                    height: '6px',
-                    backgroundColor: idx === i ? scene.accent : 'rgba(255,255,255,0.3)',
-                  }}
-                />
-              ))}
-            </div>
+
 
             {/* Content */}
             <div

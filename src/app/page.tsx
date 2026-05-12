@@ -183,7 +183,7 @@ function CTABanner() {
           style={{ fontFamily: "'Syne', sans-serif" }}
         >
           Partner with us for{' '}
-          <span style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <span style={{ color: 'rgba(255, 247, 247, 0.3)' }}>
             educational excellence
           </span>
         </h2>

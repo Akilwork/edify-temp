@@ -28,7 +28,7 @@ export default function AffiliatedLogos() {
 
       {/* Header */}
       <div className="container-edify mb-10">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center justify-center gap-3">
           <span
             className="w-8 h-px"
             style={{ background: 'var(--accent-primary)' }}
@@ -39,6 +39,10 @@ export default function AffiliatedLogos() {
           >
             Our Network
           </span>
+          <span
+            className="w-8 h-px"
+            style={{ background: 'var(--accent-primary)' }}
+          />
         </div>
       </div>
 
