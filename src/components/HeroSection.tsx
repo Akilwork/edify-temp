@@ -12,12 +12,15 @@ export default function HeroSection() {
         {/* ── Video Background ── */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="/assets/hero/Untitled design.mp4"
           autoPlay
           loop
           muted
           playsInline
-        />
+          preload="auto"
+        >
+          <source src="/assets/hero/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         {/* ── Dark Gradient Overlay for text readability ── */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 pointer-events-none" />
