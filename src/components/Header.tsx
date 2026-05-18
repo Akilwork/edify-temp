@@ -10,6 +10,7 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 import ButtonWithIcon from '@/components/ui/button-with-icon';
+import Image from 'next/image';
 
 // Map each service category to a Lucide icon
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -64,15 +65,14 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
-              style={{ background: 'linear-gradient(135deg, var(--accent-orange), #fb923c)' }}
-            >
-              <GraduationCap className="w-6 h-6 text-white" />
-            </div>
-            <div className={`font-bold text-xl tracking-tight transition-colors ${textColorClass}`}>
-              EDIFY
-            </div>
+            <Image
+              src="/Edify logo.png"
+              alt="Edify Logo"
+              width={100}
+              height={32}
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
